@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Db web</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white border-b  top-0 left-0 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Kiri: Logo + Menu -->
+      <div class="flex items-center">
+        <!-- Logo (full ukuran gambar) -->
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-1"> <!-- Sesuaikan src dengan lokasi file gambar -->
+        </a>
+      </div>
+
+      <!-- Kanan: Masuk dan Fitur Perusahaan -->
+      <div class="flex items-center">
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/regist.html" class="border border-[#7ED809] text-[#abf260] py-2 px-4 rounded hover:bg-[#7AD600] hover:text-white mr-4">Masuk</a>
+        <a href="#" class="border border-[#7ED809] text-[#abf260] py-2 px-4 rounded hover:bg-[#7AD600] hover:text-white mr-4">Fitur Perusahaan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu Navigasi -->
+  <nav class="bg-white shadow-lg py-2 top-16 left-0 w-full "> <!-- Positioned below the first navbar -->
+    <div class="container mx-auto flex items-center justify-center">
+        <ul class="flex space-x-8 text-white">
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Home</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/joblist.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Lowongan</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/perusahaan.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Perusahaan</a>
+            </li>
+            <li>
+                <a href="#" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Event</a>
+            </li>
+            <li>
+                <a href="#" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Artikel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+  <!-- Content Below the Navbars -->
+  <div class="mt-20"> <!-- Margin top to push content below both navbars -->
+    <div class="container mx-auto p-4">
+    </div>
+  </nav>
+
+  <div class="container mx-auto mt-6 relative">
+    <!-- Konten Kiri -->
+    <div class="bg-white p-2 ml-2 rounded-lg border border-gray-300 w-1/3 h-[1800px]">
+        <div class="space-y-4">   
+  
+    <!-- Search Box di Kanan -->
+    <div class="absolute left-96 top-0 mt-1 ml-20">
+        <div class="flex items-center">
+            <div class="relative"> <!-- Kontainer untuk input pertama -->
+                <img src="img/pencarian.png" alt="Search Icon" class="absolute left-3 top-3 w-4 h-4"> <!-- Gambar kecil -->
+                <input type="text" placeholder="Cari Lowongan Kerja" class="border border-gray-300 p-2 pl-10 rounded-none w-[340px] focus:outline-none"> <!-- Input kedua -->
+            </div>
+            <div class="relative"> <!-- Kontainer untuk input kedua -->
+                <img src="img/loc.png" alt="Location Icon" class="absolute left-3 top-3 w-5 h-5"> <!-- Gambar kecil -->
+                <input type="text" placeholder="Provinsi/kota" class="border border-gray-300 p-2 pl-10 rounded-f w-[380px] focus:outline-none"> <!-- Input kedua -->
+            </div>
+            <button class="bg-[#7AD600] text-white p-2 ml-2 rounded-r w-[57px]">Cari</button>   
+        </div>
+    </div>
+    
+
+<!-- Konten Informasi Pekerjaan -->
+<div class="absolute left-96 top-12 mt-4 ml-20 grid grid-cols-2 gap-6">
+    <!-- Konten Informasi Pekerjaan Pertama -->
+    <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Kerja dari Kantor</span>
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+
+    <!-- Konten Informasi Pekerjaan Kedua -->
+    <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded">Kerja di Kantor</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm  p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+
+
+    <!-- Konten Informasi Pekerjaan Ketiga -->
+    <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded">Kerja di Kantor</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm  p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+
+    <!-- Konten Informasi Pekerjaan Keempat -->
+    <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded">Kerja di Kantor</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm  p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+            
+
+     <!-- Konten Informasi Pekerjaan kelima -->
+     <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded">Kerja di Kantor</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm  p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+
+    <!-- Konten Informasi Pekerjaan keenam -->
+    <div class="bg-white p-6 rounded-lg border border-gray-300 w-88"> <!-- Mengurangi padding -->
+        <div class="flex justify-between items-center">
+            <h3 class="text-xl font-bold">Data Analyst</h3>
+            <p style="color: #7AD600;">RP 7 jt</p>
+        </div>
+        <p class="text-black mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded">Kerja di Kantor</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Kontak</span>
+            <span class="inline-block  bg-gray-200 text-sm  p-1 rounded ml-2">Penuh Waktu</span>
+        </p>
+        <div class="mt-2"> <!-- Mengurangi margin top -->
+            <span class="inline-block bg-gray-200 text-sm p-1 rounded">Penuh Waktu</span>
+            <span class="inline-block bg-gray-200 text-sm  p-1 rounded">+4</span>
+        </div>
+        <div class="mt-6 flex items-center"> <!-- Menggunakan flex untuk menyusun gambar dan teks -->
+            <img src="img/logo.png" alt="Gambar" class="border border-gray-300 rounded w-14 h-14"> <!-- Mengurangi ukuran gambar -->
+            <div class="ml-3"> <!-- Margin kiri untuk memberikan jarak antara gambar dan teks -->
+                <div class="text-sm font-semibold">Nama Perusahaan</div> <!-- Nama perusahaan -->
+                <div class="text-xs text-gray-600">Lokasi</div> <!-- Lokasi dengan ukuran kecil -->
+            </div>
+        </div>
+        <div class="border-b border-gray-300 mt-6"></div> <!-- Garis di bawah gambar -->
+        <div class="mt-4 flex items-center"> <!-- Mengurangi margin top -->
+            <img src="img/upload.png" alt="Logo DB Klik" class="border-gray-300 rounded w-6 h-6">
+            <span class="text-[8px] font-semibold ml-2">Di Upload 1 hari yang lalu</span>
+            <img src="img/save.png" alt="Logo Disimpan" class="w-4 h-4 ml-48">
+        </div>
+    </div>
+            

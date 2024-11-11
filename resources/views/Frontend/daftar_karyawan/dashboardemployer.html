@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Db web</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CSS -->
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white border-b fixed top-0 left-0 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Kiri: Logo + Menu -->
+      <div class="flex items-center">
+        <!-- Logo (full ukuran gambar) -->
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-1"> <!-- Sesuaikan src dengan lokasi file gambar -->
+        </a>
+      </div>
+
+      <!-- Kanan: Masuk dan Fitur -->
+      <div class="relative flex items-center mr-6">
+        <!-- Tombol SVG di sebelah kiri -->
+            <button class="flex items-center mr-4 space-x-3">
+             <img src="img/bell.svg" alt="Notification Icon" class="w-6 h-6 hover:text-black focus:outline-none" />
+            </button>  
+           <img src="img/sampul.png" alt="Identitas" class="w-8 h-8 rounded-full mr-6">
+        <button id="dropdownButton" class="text-xs hover:text-black flex items-center focus:outline-none">
+          LIONEL
+          <svg id="dropdownIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1 transition-transform duration-300">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        
+        
+    </div>
+  </nav>
+
+<div id="dropdownMenu" class="absolute hidden bg-white shadow-md rounded-md w-48 mt-66 justify-left ml-[1100px]">
+    <ul class="py-2">
+        <li> <a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+     </svg>  Profil Saya </a> </li> 
+     <li> <a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+    </svg>  Lamaran Saya </a></li>
+    <li><a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>Pengaturan akun
+    </a></li>
+    <li>
+<a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
+</svg>Keluar</a></li>
+</ul>
+</div>
+</div>
+
+<script>
+const dropdownButton = document.getElementById('dropdownButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const dropdownIcon = document.getElementById('dropdownIcon');
+
+dropdownButton.addEventListener('click', () => {
+  // Toggle the dropdown menu
+  dropdownMenu.classList.toggle('hidden');
+
+  // Rotate the icon when clicked
+  dropdownIcon.classList.toggle('rotate-180');
+});
+
+// Optional: Click outside to close the dropdown
+window.addEventListener('click', (e) => {
+  if (!dropdownButton.contains(e.target)) {
+    dropdownMenu.classList.add('hidden');
+    dropdownIcon.classList.remove('rotate-180');
+  }
+});
+</script>
+
+<div class="bg-gray-100 w-full p-4 mt-16">
+    <div class="container mx-auto">
+      <!-- Company Profile Section -->
+      <div class="bg-white p-4 rounded-lg shadow">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-16 h-16 rounded overflow-hidden">
+              <img src="img/linkedin.svg" alt="Company Logo" class="w-full h-full object-cover">
+            </div>
+            <div class="ml-4">
+              <h1 class="text-2xl font-semibold">PT. Seafood</h1>
+              <p class="text-black text-xs font-semibold">⚠️ Belum diverifikasi - <span class="text-[#7AD600]">Verifikasi Sekarang</span></p>
+            </div>
+          </div>
+          <button class="flex items-center text-xs text-[#7AD600] border border-[#7AD600] px-4 py-2 rounded-md font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-2">
+                <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32l8.4-8.4Z" />
+                <path d="M5.25 5.25a3 3 0 0 0-3 3v10.5a3 3 0 0 0 3 3h10.5a3 3 0 0 0 3-3V13.5a.75.75 0 0 0-1.5 0v5.25a1.5 1.5 0 0 1-1.5 1.5H5.25a1.5 1.5 0 0 1-1.5-1.5V8.25a1.5 1.5 0 0 1 1.5-1.5h5.25a.75.75 0 0 0 0-1.5H5.25Z" />
+              </svg>
+              
+            Edit Profil Perusahaan
+          </button>
+        </div>
+      </div>
+  
+   <!-- Job Listings Section -->
+<div class="bg-white p-4 h-[420px] shadow mt-4">
+    <div class="flex items-center justify-between">
+        <h2 class="text-lg font-bold text-gray-800 whitespace-nowrap">Daftar Lowongan Kerja</h2>
+
+        <!-- Sort and Search Section -->
+        <div class="flex justify-between w-full">
+            <div class="flex items-center justify-center text-gray-600 text-sm bg-white rounded-lg border border-gray-500 px-4 py-1 ml-[510px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 text-black">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+                </svg>
+                <span class="font-semibold">Urutkan:</span>
+                <input type="text" class="ml-1 text-gray-400 focus:outline-none w-28" placeholder="Tanggal diupdate" />
+            </div>
+
+            <!-- Search Section -->
+            <div class="flex items-center justify-center text-gray-600 text-sm bg-white rounded-lg border border-gray-500 px-4 py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2 text-black">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+                <input type="text" class="ml-1 text-gray-400 focus:outline-none w-52" placeholder="Cari nama loker atau kata kunci" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Vertical Feature List Section -->
+    <div class="flex mt-4">
+        <ul class="flex flex-col gap-5 w-[190px]">
+            <li onclick="showContent('content1', this)" class="text-sm font-bold cursor-pointer text-gray-800 ml-6 pb-1 relative flex items-center">
+                Semua Loker
+                <span class="ml-2 inline-block px-1 py-1 text-xs font-semibold text-white bg-[#7AD600] rounded-full">99+</span>
+            </li>
+            <li onclick="showContent('content2', this)" class="text-sm font-bold cursor-pointer text-gray-800 ml-6 pb-1 relative flex items-center">
+                Aktif
+                <span class="ml-2 inline-block px-1 py-1 text-xs font-semibold text-white bg-[#7AD600] rounded-full">99+</span>
+            </li>
+            <li onclick="showContent('content3', this)" class="text-sm font-bold cursor-pointer text-gray-800 ml-6 pb-1 relative flex items-center">
+                Nonaktif
+                <span class="ml-2 inline-block px-1 py-1 text-xs font-semibold text-white bg-[#7AD600] rounded-full">99+</span>
+            </li>
+            <li onclick="showContent('content4', this)" class="text-sm font-bold cursor-pointer text-gray-800 ml-6 pb-1 relative flex items-center">
+                Dalam Review
+                <span class="ml-2 inline-block px-1 py-1 text-xs font-semibold text-white bg-[#7AD600] rounded-full">99+</span>
+            </li>
+            <li onclick="showContent('content5', this)" class="text-sm font-bold cursor-pointer text-gray-800 ml-6 pb-1 relative flex items-center">
+                Draft
+                <span class="ml-2 inline-block px-1 py-1 text-xs font-semibold text-white bg-[#7AD600] rounded-full">99+</span>
+            </li>
+            </ul>
+
+    <!-- Content Section for Each Feature -->
+    <div id="contentArea" class="w-3/4 ml- p-4">
+        <p class="text-gray-700">Pilih fitur di sebelah kiri untuk melihat detail.</p>
+    </div>
+</div>
+
+<script>
+    function showContent(featureId, element) {
+        const contentArea = document.getElementById('contentArea');
+        let content;
+    
+        // Reset green line for all items
+        const featureItems = document.querySelectorAll("ul li");
+        featureItems.forEach(item => {
+            item.classList.remove("active");
+        });
+    
+        // Set green line for the selected item
+        element.classList.add("active");
+    
+        // Set content based on the selected feature
+        switch (featureId) {
+            case 'content1':
+                content = `
+                  <div class="section-content bg-white p-3 h-52 w-[1010px] rounded-lg border border-gray-300 shadow -mt-4 relative">            
+    <!-- Toggle Switch for Active/Inactive -->
+    <div class="absolute top-4 right-4 flex items-center space-x-2">
+        <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" class="sr-only peer">
+            <div class="w-9 h-5 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#7ED809]"></div>
+            <span class="ml-2 text-xs font-semibold text-gray-500 peer-checked:text-[#7ED809]">Aktif</span>
+        </label>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="text-gray-700 py-2 px-2 flex flex-col items-start  focus:outline-none space-y-3">
+         <span class="font-bold text-lg -mt-1 mb-1">Programmer</span>
+        <div class="flex items-center mt-2 text-xs text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
+                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .414.336.75.75.75h4.5a.75.75 0 0 0 0-1.5h-3.75V6Z" clip-rule="evenodd" />
+            </svg>                              
+            <span>Penuh Waktu</span>
+        </div>
+        <div class="flex items-center mt-2 text-xs text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
+                <path fill-rule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clip-rule="evenodd" />
+            </svg>
+            <span>Jl. Mertojoyo</span>
+        </div>
+        <div class="flex items-center mt-2 text-xs text-black">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 mr-1">
+                <path fill-rule="evenodd" d="M7.5 5.25a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v.205c.933.085 1.857.197 2.774.334 1.454.218 2.476 1.483 2.476 2.917v3.033c0 1.211-.734 2.352-1.936 2.752A24.726 24.726 0="evenodd" />
+            </svg>
+            <span>Aktif hingga Desember</span>
+        </div>
+
+       <!-- Rounded section with higher z-index (added section) -->
+<div class="bg-white rounded-lg border border-gray-400 p-4 relative hidden md:block ml-[526px] h-auto" style="top: -90px; transform: translateX(50%); max-width: 780px;">
+    <div class="flex items-center justify-between">
+        <!-- First section -->
+        <div class="flex items-center text-center">
+            <div>
+                <h3 class="text-sm font-bold text-black">999+</h3>
+                <p class="text-gray-600 text-xs">Pelamar</p>
+                <p class="text-[#7ED809] text-xs">Lihat</p>
+            </div>
+        </div>
+
+        <!-- Increased space between sections -->
+        <div class="h-8 border-l-2 border-gray-300 mx-8"></div>
+
+        <!-- Second section -->
+        <div class="flex items-center text-center">
+            <div>
+                <h3 class="text-sm font-bold text-black">999+</h3>
+                <p class="text-gray-600 text-xs">Pelamar</p>
+                <p class="text-[#7ED809] text-xs">Lihat</p>
+            </div>
+        </div>
+
+        <!-- Increased space between sections -->
+        <div class="h-8 border-l-2 border-gray-300 mx-8"></div>
+
+        <!-- Third section -->
+        <div class="flex items-center text-center">
+            <div>
+                <h3 class="text-sm font-bold text-black">999+</h3>
+                <p class="text-gray-600 text-xs">Pekerjaan</p>
+                <p class="text-[#7ED809] text-xs">Lihat</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Dropdown Section outside the rounded container -->
+<div class="mt-4 ml-[526px] h-auto" style="max-width: 780px;">
+    <label for="dropdown" class="block text-sm font-bold text-black">Pilihan:</label>
+    <select id="dropdown" class="bg-gray-100 rounded border px-2 py-1 text-sm w-full mt-2">
+        <option value="option1">Pilihan 1</option>
+        <option value="option2">Pilihan 2</option>
+        <option value="option3">Pilihan 3</option>
+    </select>
+</div>
+
+                    </div>`;
+                    
+                break;
+            case 'content2':
+                content = "<p class='text-gray-700'>Ini adalah detail untuk Fitur Aktif.</p>";
+                break;
+            case 'content3':
+                content = "<p class='text-gray-700'>Ini adalah detail untuk Fitur Nonaktif.</p>";
+                break;
+            case 'content4':
+                content = "<p class='text-gray-700'>Ini adalah detail untuk Fitur Dalam Review.</p>";
+                break;
+            case 'content5':
+                content = "<p class='text-gray-700'>Ini adalah detail untuk Fitur Draft.</p>";
+                break;
+            default:
+                content = "<p class='text-gray-700'>Pilih fitur di sebelah kiri untuk melihat detail.</p>";
+        }
+
+        
+   // Toggle visibility of content for content1
+        const dropdownButton = document.getElementById('dropdownButton');
+        const content1Section = document.getElementById('content1Section');
+
+        dropdownButton.addEventListener('click', () => {
+            if (content1Section.style.display === "none" || content1Section.style.display === "") {
+                content1Section.style.display = "block"; // Show content
+            } else {
+                content1Section.style.display = "none"; // Hide content
+            }
+        });
+
+        contentArea.innerHTML = content;
+    }
+</script>

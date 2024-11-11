@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Db web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white fixed top-0 left-0 w-full shadow p-1 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="flex items-center">
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-10">
+        </a>
+        <ul class="flex ml-20"> 
+          <li><a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/joblist.html" class="text-gray-600 px-2 hover:text-gray-500">Lowongan</a></li>
+          <li><a href="#" class="text-gray-600 px-2 hover:text-gray-500">Perusahaan</a></li>
+          <li><a href="#" class="text-gray-600 px-2 hover:text-gray-500">Event</a></li>
+          <li><a href="#" class="text-gray-600 px-2 hover:text-gray-500">Artikel</a></li>
+        </ul>
+      </div>
+      <div class="flex items-center">
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/regist.html" class="border border-[#7ED809] text-[#7ED809] py-2 px-4 rounded hover:bg-[#7ED809] hover:text-white text-xs mr-4">Masuk</a>
+        <a href="#" class="border border-[#7ED809] text-[#7ED809] py-2 px-4 rounded hover:bg-[#7ED809] hover:text-white text-xs mr-4">Fitur Perusahaan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section dengan background hijau dan pencarian kerja -->
+  <section class="bg-[#9BDA69] py-10">
+    <form action="#" method="get" class="flex justify-center max-w-lg mx-auto items-center">
+        <input type="text" class="flex-1 px-4 py-2 focus:outline-none rounded-none italic mt-14" placeholder="Posisi pekerjaan" aria-label="Cari pekerjaan">
+        <div class="h-10 border-l border-gray-300 mt-14"></div>
+        <div class="flex items-center relative">
+            <img src="img/search.png" alt="Location Icon" class="absolute left-3 w-5 h-5 mt-14">
+            <input type="text" class="flex-1 pl-10 px-4 py-2 focus:outline-none rounded-r-full pr-6 italic mt-14" placeholder="Lokasi" aria-label="Lokasi">
+            <button type="submit" class="flex items-center justify-center w-9 h-9 bg-gradient-to-r from-[#9BDA69] to-[#5EBD00] border border-white rounded-full hover:bg-gradient-to-r hover:from-[#9BDA69] hover:to-[#5EBD00] focus:ring focus:ring-blue-300 -ml-10 mt-14">
+              <svg class="w-4 h-4" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 17a6 6 0 100-12 6 6 0 000 12zm0 0l6 6m-6-6h6" />
+              </svg>
+            </button>
+        </div>
+    </form>
+
+    <!-- Dropdown Section -->
+    <div class="flex justify-center space-x-4 mt-6">
+      <select class="border border-white rounded-full px-3 py-1 bg-[#9BDA69] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white font-semibold">
+        <option value=""> Semua Jenis Pekerjaan</option>
+        <option value="job1">It Support</option>
+        <option value="job2">QA</option>
+      </select>
+
+      <select class="border border-white rounded-full px-4 py-2 bg-[#9BDA69] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white font-semibold">
+        <option value="">Range Gaji</option>
+        <option value="salary1">Salary 1</option>
+        <option value="salary2">Salary 2</option>
+      </select>
+
+      <select class="border border-white rounded-full px-4 py-2 bg-[#9BDA69] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white font-semibold">
+        <option value="">Jenjang Karir</option>
+        <option value="career1">Career Level 1</option>
+        <option value="career2">Career Level 2</option>
+      </select>
+    </div>
+  </section>
+</div>
+</div>
+<!-- Section untuk Menampilkan Info Pekerjaan -->
+<section class="py-7">
+  <div class="container mx-auto flex">
+    <div class="overflow-y-auto h-[810px] ml-6 pr-4 border-b rounded-lg border-gray-300"> <!-- Added border at the bottom -->
+      <!-- Tambahkan elemen pekerjaan lainnya di sini -->
+      <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+        <div class="bg-white rounded-lg border border-gray-300 shadow p-3 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+          <div class="flex flex-col items-center">
+            <img src="img/logo.png" alt="Company Logo" class="h-20 w-20 rounded-none">
+            <div class="flex items-center mt-1">
+              <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                Prioritas  
+            </div>
+          </div>
+          <div class="rounded-lg p-4 mb-2 text-black">
+            <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+            <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+            <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+            <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+          </div>
+        </div>
+      </a>
+      <!-- Tambahan pekerjaan kedua -->
+      <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+        <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+          <div class="flex flex-col items-center">
+            <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+            <div class="flex items-center mt-1">
+              <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                Prioritas     
+              </div>
+          </div>
+          <div class="rounded-lg p-4 mb-2 text-black">
+            <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+            <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+            <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+            <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+          </div>
+        </div>
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+          <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+            <div class="flex flex-col items-center">
+              <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+              <div class="flex items-center mt-1">
+                <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                  <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                  Prioritas     
+                </div>
+            </div>
+            <div class="rounded-lg p-4 mb-2 text-black">
+              <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+              <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+              <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+              <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+            </div>
+          </div>
+          <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+            <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+              <div class="flex flex-col items-center">
+                <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+                <div class="flex items-center mt-1">
+                  <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                    <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                    Prioritas     
+                  </div>
+              </div>
+              <div class="rounded-lg p-4 mb-2 text-black">
+                <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+                <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+                <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+                <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+              </div>
+            </div>
+            <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+              <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+                <div class="flex flex-col items-center">
+                  <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+                  <div class="flex items-center mt-1">
+                    <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                      <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                      Prioritas     
+                    </div>
+                </div>
+                <div class="rounded-lg p-4 mb-2 text-black">
+                  <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+                  <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+                  <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+                  <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+                </div>
+              </div>
+              <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+                <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+                  <div class="flex flex-col items-center">
+                    <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+                    <div class="flex items-center mt-1">
+                      <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                        <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                        Prioritas     
+                      </div>
+                  </div>
+                  <div class="rounded-lg p-4 mb-2 text-black">
+                    <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+                    <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+                    <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+                    <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+                  </div>
+                </div>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="block">
+                  <div class="bg-white rounded-lg border border-gray-300 shadow p-4 mb-6 flex items-center space-x-4 max-w-md transition duration-150 ease-in-out hover:border hover:border-[#92D829] active:border-2 active:border-[#92D829]">
+                    <div class="flex flex-col items-center">
+                      <img src="img/ronaldo.jpg" alt="Company Logo" class="h-20 w-20 rounded-none">
+                      <div class="flex items-center mt-1">
+                        <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                          <img src="img/pencarian.png" alt="Logo Kecil" class="h-2 w-2 mr-1"> <!-- Ganti dengan sumber gambar yang sesuai -->
+                          Prioritas     
+                        </div>
+                    </div>
+                    <div class="rounded-lg p-4 mb-2 text-black">
+                      <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+                      <h3 class="text-lg font-semibold">PT. HASWARA SANJAYA AKEH</h3>
+                      <p class="text-[#92D829] text-sm font-bold mt-1">Rp12.000 - 16.000</p>
+                      <p class="text-gray-400 text-sm mt-1">Lokasi: Bandung</p>
+                    </div>
+                  </div>                   
+          
+      </a>
+    </div>
+
+    <div class="flex flex-col items-start ml-3 border border-gray-300 rounded-lg p-2"> <!-- Add padding here -->
+      <img src="img/dream.jpeg" alt="Gambar di sebelah kanan" class="h-60 w-[760px] rounded-lg border border-gray-300 shadow-lg mb-4">
+      <div class="p-4 mb-4 flex items-center space-x-2 max-w-auto -mt-6">
+          <div class="flex flex-col items-center">
+              <img src="img/logo.png" alt="Company Logo" class="h-20 w-20 rounded-none">
+              <div class="flex items-center mt-1">
+                  <p class="rounded-full px-2 py-0.5 text-sm text-white font-bold flex items-center" style="background: linear-gradient(90deg, #92D829, #84D108);">
+                      <img src="img/pencarian.png" alt="Logo Kecil" class="h-4 w-4 mr-1">
+                      Prioritas 
+                  </p>
+              </div>
+          </div>
+          <div class="p-4 mb-2 text-black flex-grow">
+              <p class="bg-[#92D829] rounded-full px-3 py-1 text-sm text-white inline-block mb-2">Finance & Accounting</p>
+              <h3 class="text-lg font-semibold text-gray-500">PT. HASWARA SANJAYA AKEH</h3>
+              <p class="text-[#92D829] text-sm font-bold">Rp12.000 - 16.000</p>
+              <p class="text-gray-400 text-sm mt-1 font-bold">Bandung</p>
+          </div>
+          
+          <div class="ml-auto flex flex-col space-y-2 mb-16 relative"> <!-- Added relative for dropdown positioning -->
+              <!-- Dropdown Button -->
+              <div class="inline-block">
+                  <button class="ml-80 text-black text-lg font-bold px-4 py-1 focus:outline-none" onclick="toggleDropdown()">...</button>
+                  <div id="dropdown" class="hidden absolute right-0 bg-white shadow-md rounded mt-4 z-10"> <!-- Dropdown menu -->
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 1</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</a>
+                      <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</a>
+                  </div>
+              </div>
+              <!-- Simpan Button -->
+              <button class="ml-72 border border-[#7ED809] rounded px-1 py-1 text-xs text-[#7ED809] font-semibold">Simpan</button> <!-- Tombol Simpan -->
+              <!-- Lamar Button -->
+              <button class="ml-72 bg-[#92D829] rounded px-1 py-1 text-xs text-white inline-block font-semibold">Lamar</button> <!-- Tombol Lamar -->
+          </div>
+      </div>
+  
+      <!-- Scrollable Content Section -->
+      <div class="overflow-y-auto h-[339px] w-full border-t border-gray-300 custom-scrollbar -mt-6"> <!-- Added custom scrollbar class -->
+          <!-- Persyaratan Section -->
+          <div class="p-4 text-black flex-grow">
+              <h4 class="text-lg text-[#92D829] font-semibold mb-2 italic">Persyaratan</h4>
+              <div class="flex space-x-2">
+                  <button class="bg-gray-200 text-gray-500 font-semibold rounded-full px-4 py-1 text-sm">Kerja di kantor</button>
+                  <button class="bg-gray-200 text-gray-500 font-semibold rounded-full px-4 py-1 text-sm">1-3 tahun pengalaman</button>
+                  <button class="bg-gray-200 text-gray-500 font-semibold rounded-full px-4 py-1 text-sm">Minimal Sarjana (S1)</button>
+                  <button class="bg-gray-200 text-gray-500 font-semibold rounded-full px-4 py-1 text-sm">Umur 20-30</button>
+              </div>
+          </div>
+  
+          <!-- Deskripsi Section -->
+          <div class="p-4 text-black flex-grow">
+              <h4 class="text-lg text-[#92D829] font-semibold mb-2 italic">Job Deskripsi</h4>
+              <ol class="list-decimal pl-5 text-gray-500 font-semibold"> <!-- Ordered list -->
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Tau jalan Surabaya</li>
+                  <li class="mb-1">Tidak Tersesat di jalan</li>
+                  <li class="mb-1">Tau FE</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <li class="mb-1">Menjalin Hubungan yang baik dengan client</li>
+                  <div class="p-4 text-black flex-grow">
+                    <h4 class="text-2xl text-black font-bold mt-8 -ml-10">Pertanyaan dari Perusahaan</h4>
+                    <ol class="list-decimal pl-5 text-gray-500 font-semibold -ml-10"> <!-- Ordered list -->
+                    <li class="mb-1">Kualifikasi mana yang kamu miliki?</li>
+                    <li class="mb-1">Berapa lama waktu yang kamu butuhkan untuk memberi tahu perusahaanmu saat ini?</li>
+                    <li class="mb-1">Kualifikasi mana yang kamu miliki?</li>
+                    <div class="p-4 text-black flex-grow">
+                      <h4 class="text-2xl text-black font-bold mt-4 -ml-10">Profil Perusahaan</h4>
+                      <ol class="border border-gray-400 shadow-lg text-gray-600 rounded-lg -ml-10 text-sm mt-4">
+                        <!-- Ordered list -->
+                        <img src="img/dream.jpeg" alt="Gambar di sebelah kanan" class="h-20 w-[100px] mt-5 ml-4">
+                        <li class="mt-4 ml-4 font-bold text-black text-2xl">Dream Media</li>
+                        <li class="ml-4 mt-4 flex items-center">
+                          <img src="img/insurance.jpg" alt="Insurance Icon" class="w-6 h-6 mr-2">
+                          Insurance                        
+                          <li class="ml-4 mt-2 flex items-center">
+                            <img src="img/insurance.jpg" alt="Insurance Icon" class="w-6 h-6 mr-2">
+                            50 Employes                        
+                            <li class="ml-4 mt-4 max-w-[800px] text-sm leading-relaxed"> <!-- Batas lebar dan ukuran font -->
+                          PT Asuransi Mitra Pelindung Mustika, or in short MPM Insurance, wa incorporated on May 8, 2012, and started operations in October 2012 when it received its general insurance license from the Ministry of Finance. MPM Insurance is the youngest member of PT Mitra Pinasthika Mustika (MPM), a consumer automotive company with businesses covering motorcycle distribution and retail, automotive logistic services and financial services. Although the company is relatively new, MPM Insurance is led by experienced management with proven track records. Currently, MPM Insurance is focusing on motor vehicle, property, and cargo insurance.
+                        </li>
+                        <li class="ml-4 mt-4 flex font-bold items-center">
+                          <img src="img/kado.png" alt="Insurance Icon" class="w-6 h-6 mr-2">
+                          Manfaat dan Keuntungan                         
+                          <li class="ml-4">- Insurance</li>
+                        <li class="ml-4 mb-8">- Tunjangan Harian</li>
+                      </div>
+                      <div class="p-4 text-black flex-grow">
+                        <h4 class="text-lg text-black font-bold mt-2 -ml-10 italic">Hati-Hati</h4>
+                        <h4 class="text-lg text-gray-500 mt-0 -ml-10">Jangan berikan detail bank atau kartu kredit kamu saat mengirimkan lamaran kerja.</h4>
+
+              </ol>
+          </div>
+      </div>
+  </div>
+  
+  <!-- Add JavaScript for Dropdown Functionality -->
+  <script>
+      function toggleDropdown() {
+          const dropdown = document.getElementById('dropdown');
+          dropdown.classList.toggle('hidden');
+      }
+  
+      // Optional: Close dropdown when clicking outside
+      window.onclick = function(event) {
+          if (!event.target.matches('.text-black.font-bold')) {
+              const dropdowns = document.getElementsByClassName("absolute");
+              for (let i = 0; i < dropdowns.length; i++) {
+                  const openDropdown = dropdowns[i];
+                  if (!openDropdown.classList.contains('hidden')) {
+                      openDropdown.classList.add('hidden');
+                  }
+              }
+          }
+      }
+  </script>
+  
+  <!-- Add Custom CSS for Scrollbar -->
+  <style>
+      /* For WebKit browsers (Chrome, Safari) */
+      .custom-scrollbar::-webkit-scrollbar {
+          width: 8px; /* Width of the scrollbar */
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1; /* Background of the scrollbar track */
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #92D829; /* Color of the scrollbar thumb */
+          border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #84D108; /* Color of the scrollbar thumb on hover */
+      }
+  
+      /* For Firefox */
+      .custom-scrollbar {
+          scrollbar-width: thin; /* Make scrollbar thin */
+          scrollbar-color: #92D829 #f1f1f1; /* Thumb color and track color */
+      }
+  </style>
+  
+      
+    </div>
+
+      </div>
+      
+      

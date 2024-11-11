@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJOB Employer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Tailwind CSS to set a custom background image */
+        @layer utilities {
+            .bg-web {
+                background-image: url('img/bg.webp'); /* Adjust the path as needed */
+                background-size: cover; /* Ensure the background covers the entire area */
+                background-position: top center; /* Change this to top or center */
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center bg-web min-h-screen">
+    <!-- Centered Logo -->
+    <div class="mt-16">
+        <img src="img/logoo.png" alt="DBJOB Logo" class="h-16"> <!-- Adjust height as needed -->
+    </div>
+
+    <div class="mt-12 bg-white border border-gray-200 text-black text-center text-2xl rounded-lg py-8 px-12">
+        <span class="font-bold">
+            <img src="img/warning.png" alt="Jam" class="inline-block w-20 h-20 mr-2"> <!-- Sesuaikan src dengan lokasi gambar -->
+        </span>
+        <p class="mt-4 text-lg font-bold text-gray-700">
+            Perhatian! 
+        </p>    
+        <p class="mt-2 text-xs text-gray-600 max-w-xs">
+            Anda telah menolak undangan dari perusahaan <span class="text-[#7AD600] font-bold">PT.ABCDEFGHIJKLMNO</span> tentukan langkah selanjutnya!
+        </p>
+        <!-- Rounded Button -->
+        <!-- Rounded Button -->
+        <div class="mt-4 flex space-x-4">
+            <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/akundihapus.html" class="border border-red-500 text-red-500 text-xs font-bold py-2 px-8 rounded-lg text-center">
+                Tolak Undangan
+            </a>
+            <a href="https://link-terima.com" class="bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-white text-xs font-bold py-2 px-8 rounded-lg text-center">
+                Terima Undangan
+            </a>
+        </div>

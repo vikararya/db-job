@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJOB Employer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Tailwind CSS to set a custom background image */
+        @layer utilities {
+            .bg-web {
+                background-image: url('img/bg.webp'); /* Adjust the path as needed */
+                background-size: cover; /* Ensure the background covers the entire area */
+                background-position: top center; /* Change this to top or center */
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center bg-web min-h-screen relative">
+    <!-- Centered Logo -->
+    <div class="mt-16">
+        <img src="img/logoo.png" alt="DBJOB Logo" class="h-16"> <!-- Adjust height as needed -->
+    </div>
+
+    <!-- Verification Box -->
+    <div class="mt-12 bg-white border border-gray-200 text-black text-center text-2xl rounded-lg py-8 px-28">
+        <span class="font-bold">Verifikasi email anda</span>
+        <p class="mt-6 text-sm text-gray-600">
+            Link verifikasi telah dikirimkan ke: 
+        </p>
+        <!-- SVG and Email Address -->
+        <div class="flex items-center justify-center mt-3 text-[#7AD600] font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+            </svg>
+            <span class="ml-2 text-sm">aryavikar@gmail.com</span>
+        </div>
+        <p class="mt-2 text-xs text-gray-600">Cek kotak masuk atau spam Anda untuk melanjutkan verifikasi.</p>
+        <!-- Rounded Button -->
+        <div class="mt-4">
+            <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/registemploye3.html" class="bg-[#BFBFBF] text-white text-xs font-bold py-2 px-8 rounded-lg text-center">
+                Kirim Ulang (50)
+            </a>
+        </div>
+    </div>
+
+    <a href="https://wa.me/your-number" class="absolute bottom-4 right-4  bg-[#88D733] rounded-full p-2 flex items-center justify-center shadow-md hover:bg-green-50 transition duration-200">
+        <img src="img/wa.svg" alt="WhatsApp" class="w-7 h-7"> <!-- Adjust the icon source and size -->
+    </a>
+</body>
+</html>

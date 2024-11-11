@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJOB Employer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Tailwind CSS to set a custom background image */
+        @layer utilities {
+            .bg-web {
+                background-image: url('img/bg.webp'); /* Adjust the path as needed */
+                background-size: cover; /* Ensure the background covers the entire area */
+                background-position: top center; /* Change this to top or center */
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center bg-web min-h-screen">
+    <!-- Centered Logo -->
+    <div class="mt-16">
+        <img src="img/logoo.png" alt="DBJOB Logo" class="h-16"> <!-- Adjust height as needed -->
+    </div>
+
+    <!-- Rounded Box for Account Creation -->
+    <div class="bg-white rounded-lg shadow-lg p-12 mt-10 w-[580px] h-[400px]"> <!-- Scrollable container with fixed height -->
+        <h2 class="text-xl font-bold text-center mb-2 -mt-6">Upload NPWP dan SIUP</h2>
+
+        <!-- NPWP Document Label -->
+        <label class="block text-sm font-bold text-gray-700 mb-2" for="npwp-file">Dokumen Nomor Pokok Wajib Pajak (Wajib)</label>
+        
+        <!-- Hidden File Input -->
+        <input type="file" id="npwp-file" class="hidden" accept=".pdf, .jpg, .jpeg, .png">
+
+        <!-- Upload Area with Additional Information -->
+        <div class="flex mb-2"> <!-- Flex container for alignment -->
+            <!-- Rounded Upload Area -->
+            <div class="border border-gray-300 rounded-md p-1 h-20 mb-2 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-100 transition duration-100 w-[500px] mx-auto" onclick="document.getElementById('npwp-file').click();">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7 text-black font-bold">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                <span class="text-xs text-gray-400 mt-1">Tekan untuk memilih file</span>
+            </div>
+        </div>
+
+        <!-- File Info Section -->
+        <div class="flex justify-between text-xs text-gray-500 -mt-2 px-1">
+            <span>Format yang diterima: .pdf, .jpg, .jpeg, .png</span>
+            <span>Ukuran Maksimum: 2 MB</span>
+        </div>
+    
+         <!-- NPWP Document Label -->
+         <label class="block text-sm font-bold text-gray-700 mb-2 mt-4" for="npwp-file">Dokumen Surat Izin Usaha Perdagangan (Opsional)</label>
+        
+         <!-- Hidden File Input -->
+         <input type="file" id="npwp-file" class="hidden" accept=".pdf, .jpg, .jpeg, .png">
+ 
+         <!-- Upload Area with Additional Information -->
+         <div class="flex mb-2"> <!-- Flex container for alignment -->
+             <!-- Rounded Upload Area -->
+             <div class="border border-gray-300 rounded-md p-1 h-20 mb-2 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-100 transition duration-100 w-[500px] mx-auto" onclick="document.getElementById('npwp-file').click();">
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7 text-black font-bold">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                 </svg>
+                 <span class="text-xs text-gray-400 mt-1">Tekan untuk memilih file</span>
+             </div>
+         </div>
+ 
+         <!-- File Info Section -->
+         <div class="flex justify-between text-xs text-gray-500 -mt-2 px-1">
+             <span>Format yang diterima: .pdf, .jpg, .jpeg, .png</span>
+             <span>Ukuran Maksimum: 2 MB</span>
+         </div>
+
+
+      <!-- Cancel and Buat Akun Buttons -->
+<div class="flex justify-between items-center mt-4">
+    <!-- Left Section: Lewati Langkah Ini with SVG -->
+    <div class="flex items-center space-x-2 cursor-pointer text-gray-500">
+        <span class="text-xs font-semibold">Lewati Langkah Ini</span>
+        <!-- SVG Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+    </div>
+
+    <!-- Right Section: Cancel and Buat Akun Buttons -->
+    <div class="flex space-x-4">
+        <!-- Cancel Button -->
+        <button class="border border-red-700 text-red-700 rounded-lg px-4 py-2 text-xs font-bold">
+            Kembali
+        </button>
+        
+        <!-- Buat Akun Button -->
+        <button class="bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-white rounded-lg px-4 py-2 text-xs font-bold hover:from-[#A4DB78] hover:to-[#6FBF08]">
+            Buat Akun
+        </button>
+    </div>
+</div>
+
+        
+      

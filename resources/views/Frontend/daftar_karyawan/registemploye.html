@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJOB Employer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white border-b  top-0 left-0 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Kiri: Logo + Menu -->
+      <div class="flex items-center">
+        <!-- Logo (full ukuran gambar) -->
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-1"> <!-- Sesuaikan src dengan lokasi file gambar -->
+        </a>
+      </div>
+
+      <!-- Kanan: Masuk dan Fitur Perusahaan -->
+      <div class="flex items-center text-sm">
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/regist.html" class="border border-[#7ED809] text-[#abf260] py-1 px-4 rounded hover:bg-[#7AD600] hover:text-white mr-4">Pencari Kerja</a>
+        <a href="#" class="border border-[#7ED809] bg-[#7ED809] text-white py-1 px-4 rounded hover:bg-[#7AD600] hover:text-white mr-4">Masuk</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu Navigasi -->
+  <nav class="bg-white shadow-lg py-2 top-16 left-0 w-full "> <!-- Positioned below the first navbar -->
+    <div class="container mx-auto flex items-center justify-center">
+        <ul class="flex space-x-8 text-white">
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Home</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/joblist.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Lowongan</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/perusahaan.html" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Perusahaan</a>
+            </li>
+            <li>
+                <a href="#" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Event</a>
+            </li>
+            <li>
+                <a href="#" class=" text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Artikel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class=" flex items-center justify-center min-h-screen">
+
+    <!-- Container -->
+    <div class=" flex flex-col md:flex-row w-full max-w-5xl overflow-hidden">
+        
+        <!-- Left Section (Image & Text) -->
+        <div class="flex flex-col items-center justify-center text-center md:w-1/2 bg-cover bg-center p-8" style="background-image: url('path/to/your-green-background-image.jpg');">
+            <h2 class="text-3xl font-bold text-white mb-2">Temukan Talenta Terbaik</h2>
+            <p class="text-lg text-white">untuk Meningkatkan Perusahaan Anda</p>
+            <img src="img/Gambar.png" alt="Person" class="-mt-16 rounded-lg w-[500px] h-[700px] object-cover">
+        </div>
+
+        <!-- Right Section (Form) -->
+        <div class="p-10 md:w-1/2">
+            <h2 class="text-3xl font-bold text-center text-[#77C92A] mb-8 mt-20">Buat akun DBJOB employer</h2>
+            
+            <form class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                    <!-- Nama Depan Field -->
+                    <div class="flex flex-col">
+                        <label for="nama-depan" class="text-gray-700 mb-1 ml-4 font-semibold">Nama Depan</label>
+                        <input type="text" id="nama-depan" placeholder="Ketik Nama Depan Anda" class="border border-gray-300 rounded-lg px-4 py-2 w-full" />
+                    </div>
+                    
+                    <!-- Nama Belakang Field -->
+                    <div class="flex flex-col">
+                        <label for="nama-belakang" class="text-gray-700 mb-1 ml-4 font-semibold">Nama Belakang</label>
+                        <input type="text" id="nama-belakang" placeholder="Ketik Nama Belakang Anda" class="border border-gray-300 rounded-lg px-4 py-2 w-full" />
+                    </div>
+                </div>
+               
+               <!-- Nomor Field -->
+               <div class="flex flex-col">
+                <label for="nomor-telepon" class="text-gray-700 mb-1 ml-4 text-xs font-semibold">Nomor Telepon</label>
+                <div class="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                    <span class="px-3 text-black text-xs font-semibold">+62</span>
+                    <span class="h-6 border-r border-gray-300"></span> <!-- Divider Line -->
+                    <input 
+                        type="text" 
+                        id="nomor-telepon" 
+                        placeholder="Ketik Nomor HP Anda" 
+                        class="text-xs px-4 py-2 w-full focus:outline-none"
+                    />
+                </div>
+            </div>
+
+                           <!-- email Field -->
+            <div class="flex flex-col">
+                <label for="nama-depan" class="text-gray-700 mb-1 ml-4 text-xs font-semibold">Email</label>
+                <input type="text" id="nama-depan" placeholder="Ketik Email Anda" class="text-xs border border-gray-300 rounded-lg px-4 py-2 w-full" />
+            </div>
+
+            <!-- Password Field -->
+<div class="flex flex-col">
+    <label for="password" class="text-gray-700 mb-1 ml-4 text-xs font-semibold">Password</label>
+    <div class="relative">
+        <!-- Password Input -->
+        <input 
+            type="password" 
+            id="password" 
+            placeholder="Ketik Password Baru" 
+            class="text-xs border border-gray-300 rounded-lg px-4 py-2 w-full pr-10" 
+        />
+        <!-- Eye Icon Button -->
+        <button type="button" onclick="togglePasswordVisibility()" class="absolute inset-y-0 right-3 flex items-center">
+            <!-- Eye SVG Icon (initially eye-off) -->
+            <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+<!-- JavaScript for Toggle Function -->
+<script>
+    function togglePasswordVisibility() {
+        const passwordInput = document.getElementById("password");
+        const eyeIcon = document.getElementById("eye-icon");
+
+        if (passwordInput.type === "password") {
+            // Show password
+            passwordInput.type = "text";
+
+            // Change to eye-off icon
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.07 10.07 0 0112 19c-4.477 0-8.268-2.943-9.542-7C4.732 7.943 8.523 5 13 5a10.07 10.07 0 011.875.175m0 0A4.97 4.97 0 0013 5a4.97 4.97 0 00-1.875.175m0 0C9.25 7.372 8 8.765 8 10.25a3.751 3.751 0 003.75 3.75c1.485 0 2.878-1.25 3.825-2.175z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.75 10.25a3.75 3.75 0 01-3.75 3.75A3.75 3.75 0 018.25 10.25a3.75 3.75 0 013.75-3.75" />
+            `;
+        } else {
+            // Hide password
+            passwordInput.type = "password";
+
+            // Change to eye icon
+            eyeIcon.innerHTML = `
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            `;
+        }
+    }
+</script>
+
+<!-- Centered Checkbox Field -->
+<div class="flex justify-center mt-4">
+    <div class="flex items-center space-x-2 mt-4">
+        <input type="checkbox" id="terms" class="h-4 w-4 text-green-600 border-gray-300 rounded" />
+        <label for="terms" class="text-gray-500 text-xs">
+            Saya setuju dengan 
+            <span class="font-bold">Ketentuan Layanan</span>
+        </label>
+    </div>
+</div>
+
+<!-- Full-width Rounded Button -->
+<div class="flex flex-col items-center mt-24">
+    <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/registemploye2.html" class="w-full md:w-auto bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-white text-base font-bold py-2 px-28 rounded-full hover:bg-green-600 transition duration-200 text-center">
+        Daftar
+    </a>
+    <p class="mt-4 mb-16 text-xs text-gray-500">
+        Untuk pencari kerja, kunjungi <a href="#" class="text-[#3300FF] underline">halaman</a> ini.
+    </p>
+</div>
+
+<!-- Horizontal Line and Login Section -->
+<div class="mt-24 ">
+    <div class="h-0.5 bg-[#7ED809]"></div> <!-- Horizontal line -->
+    <div class="flex items-center justify-center mt-4">
+        <p class="text-xs text-gray-500 mr-2">Sudah punya akun DB Job Employer?</p>
+        <a href="" class="border-2 border-[#C1EE94] rounded-lg text-[#7ED809] text-xs font-bold py-1 px-4 hover:bg-[#7ED809] hover:text-white transition duration-200">
+            Masuk
+        </a>
+    </div>
+</div>
+

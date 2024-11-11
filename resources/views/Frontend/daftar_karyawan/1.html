@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Db Web</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Tambahkan Tailwind CSS -->
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white border-b">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Kiri: Logo + Menu -->
+      <div class="flex items-center">
+        <!-- Logo -->
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-1">
+        </a>
+      </div>
+
+      <!-- Kanan: Masuk dan Fitur Perusahaan -->
+      <div class="flex items-center">
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/-.html"
+          class=" py-2 px-4  hover:text-[#7AD600] mr-4">Subtitle</a>
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/-.html"
+          class=" py-2 px-4  hover:text-[#7AD600] mr-4">Profil</a>
+        <a href="#"
+          class="border border-[#7ED809] text-[#abf260] py-2 px-4 rounded hover:bg-[#7AD600] hover:text-white mr-4">Fitur
+          Perusahaan</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Menu Navigasi -->
+  <nav class="bg-white shadow-lg py-2">
+    <div class="container mx-auto flex items-center justify-center">
+      <ul class="flex space-x-8 text-white">
+        <li><a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html"
+            class=" hover:text-green-500 text-[#576974]">Home</a></li>
+        <li><a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/joblist.html"
+            class=" hover:text-green-500 text-[#576974]">Lowongan</a></li>
+        <li><a href="#" class=" hover:text-green-500 text-[#576974]">Perusahaan</a></li>
+        <li><a href="#" class=" hover:text-green-500 text-[#576974]">Event</a></li>
+        <li><a href="#" class=" hover:text-green-500 text-[#576974]">Artikel</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 2 Rounded Sections Below -->
+<div class="container mx-auto mt-8 flex space-x-8">
+    <!-- Left: Image Section -->
+    <div class="relative flex items-center w-2/3"> <!-- Set the width of the image section -->
+        <!-- Image of people working -->
+        <img src="img/kerja.jpg" alt="People Working" class="rounded-lg shadow-lg w-full h-96 object-cover"> <!-- Adjusted height and added object-cover -->
+    </div>
+
+    <!-- Right: Search Bar Section -->
+    <div class="bg-white rounded-lg shadow-2xl p-8 w-1/3 flex items-center justify-center">
+        <div class="flex-grow">
+            <h2 class="text-2xl font-bold mb-4 text-gray-600">Temukan Perusahaan yang tepat untuk anda</h2>
+            <form>
+                <input type="text" placeholder="Cari perusahaan" class="w-full p-3 border border-gray-300 rounded-lg">
+                <input type="text" placeholder="Cari lokasi" class="w-full p-3 border border-gray-300 rounded-lg mt-4"> <!-- Added mt-4 for spacing -->
+                <button type="submit" class="mt-8 bg-gray-600 text-white py-2 px-12 rounded-lg hover:bg-white">Cari</button>
+            </form>
+        </div>
+    </div>
+</div>
+  
+  <div class="bg-white py-14">
+    <div class="container mx-auto">
+      <!-- Flexbox untuk membagi konten kiri dan kanan -->
+      <div class="flex justify-between items-center mb-14 pl-14">
+        <!-- Judul Kategori dengan margin kiri tambahan -->
+        <h2 class="text-2xl font-bold text-left" style="color: #393939; margin-left: -10px;">Berbagai Perusahaan</h2>
+        
+        <!-- Tulisan 'Lebih Banyak' di sebelah kanan -->
+        <a href="#" class="rounded-lg px-2 py-0.5 mr-12 text-white font-semibold" style="background-color: #3e3e3e;">Lebih Banyak</a>
+      </div>
+  
+      <!-- Deskripsi di bawah Kategori dengan margin atas negatif -->
+      <p class="text-gray-600 text-lg pl-12 mt-[-40px]">Temukan lowongan baru, ulasan, budaya perusahaan dan tunjangan.</p>
+
+          <!-- Daftar Perusahaan dengan margin kiri dan kanan -->
+          <div class="grid grid-cols-3 gap-4 mt-8 px-8">
+            <!-- Perusahaan 1 -->
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+              <div class="flex items-center mb-2">
+                <img src="img/sampul.png" alt="Perusahaan 1" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                <div class="flex flex-col">
+                  <h3 class="font-semibold">Perusahaan 1</h3>
+                  <p class="text-sm text-gray-500">Lokasi: Jakarta</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Bidang Perusahaan: Teknologi Informasi</p>
+              <p class="text-sm text-gray-500">Total Lowongan: 5</p>
+            </div>
+          
+            <!-- Perusahaan 2 -->
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+              <div class="flex items-center mb-2">
+                <img src="img/kerja.jpg" alt="Perusahaan 2" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                <div class="flex flex-col">
+                  <h3 class="font-semibold">Perusahaan 2</h3>
+                  <p class="text-sm text-gray-500">Lokasi: Bandung</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Bidang Perusahaan: Manufaktur</p>
+              <p class="text-sm text-gray-500">Total Lowongan: 3</p>
+            </div>
+          
+            <!-- Perusahaan 3 -->
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+              <div class="flex items-center mb-2">
+                <img src="img/kerja.jpg" alt="Perusahaan 3" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                <div class="flex flex-col">
+                  <h3 class="font-semibold">Perusahaan 3</h3>
+                  <p class="text-sm text-gray-500">Lokasi: Surabaya</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Bidang Perusahaan: Jasa Keuangan</p>
+              <p class="text-sm text-gray-500">Total Lowongan: 4</p>
+            </div>
+          
+            <!-- Perusahaan 4 -->
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+              <div class="flex items-center mb-2">
+                <img src="img/kerja.jpg" alt="Perusahaan 4" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                <div class="flex flex-col">
+                  <h3 class="font-semibold">Perusahaan 4</h3>
+                  <p class="text-sm text-gray-500">Lokasi: Yogyakarta</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Bidang Perusahaan: Pendidikan</p>
+              <p class="text-sm text-gray-500">Total Lowongan: 2</p>
+            </div>
+          
+            <!-- Perusahaan 5 -->
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+              <div class="flex items-center mb-2">
+                <img src="img/perusahaan5.jpg" alt="Perusahaan 5" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                <div class="flex flex-col">
+                  <h3 class="font-semibold">Perusahaan 5</h3>
+                  <p class="text-sm text-gray-500">Lokasi: Semarang</p>
+                </div>
+              </div>
+              <p class="text-sm text-gray-500">Bidang Perusahaan: Kesehatan</p>
+              <p class="text-sm text-gray-500">Total Lowongan: 6</p>
+            </div>
+          
+            <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+                <div class="flex items-center mb-2">
+                  <img src="img/perusahaan5.jpg" alt="Perusahaan 5" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                  <div class="flex flex-col">
+                    <h3 class="font-semibold">Perusahaan 5</h3>
+                    <p class="text-sm text-gray-500">Lokasi: Semarang</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-500">Bidang Perusahaan: Kesehatan</p>
+                <p class="text-sm text-gray-500">Total Lowongan: 6</p>
+              </div>
+              <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+                <div class="flex items-center mb-2">
+                  <img src="img/sampul.png" alt="Perusahaan 1" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                  <div class="flex flex-col">
+                    <h3 class="font-semibold">Perusahaan 1</h3>
+                    <p class="text-sm text-gray-500">Lokasi: Jakarta</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-500">Bidang Perusahaan: Teknologi Informasi</p>
+                <p class="text-sm text-gray-500">Total Lowongan: 5</p>
+              </div>
+            
+              <!-- Perusahaan 2 -->
+              <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+                <div class="flex items-center mb-2">
+                  <img src="img/kerja.jpg" alt="Perusahaan 2" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                  <div class="flex flex-col">
+                    <h3 class="font-semibold">Perusahaan 2</h3>
+                    <p class="text-sm text-gray-500">Lokasi: Bandung</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-500">Bidang Perusahaan: Manufaktur</p>
+                <p class="text-sm text-gray-500">Total Lowongan: 3</p>
+              </div>  
+              <div class="bg-white rounded-lg p-4 border border-black flex flex-col">
+                <div class="flex items-center mb-2">
+                  <img src="img/kerja.jpg" alt="Perusahaan 2" class="w-24 h-24 rounded-full mr-4"> <!-- Ukuran gambar diperbesar -->
+                  <div class="flex flex-col">
+                    <h3 class="font-semibold">Perusahaan 2</h3>
+                    <p class="text-sm text-gray-500">Lokasi: Bandung</p>
+                  </div>
+                </div>
+                <p class="text-sm text-gray-500">Bidang Perusahaan: Manufaktur</p>
+                <p class="text-sm text-gray-500">Total Lowongan: 3</p>
+              </div> 
+            </div>
+        </div>
+        <div class="bg-white py-12"></div>
+        <!-- Section dengan Background Hijau -->
+          </div>
+          <footer class="bg-gradient-to-r from-[#AFEB6B] to-[#72CE00] text-white py-10">
+            <div class="container mx-auto">
+              <!-- Logo Footer, shifted slightly to the right -->
+              <div class="flex justify-start items-center ml-16 mb-16">
+                        <!-- Logo logobg di sebelah kiri -->
+                <img src="img/logobg.png" alt="Footer Logo" class="h-10 w-auto" />
+                
+                <!-- Logo Instagram di tengah -->
+                <img src="img/sosmed.png" alt="Instagram Logo" class="h-16 w-auto absolute left-1/2 ml-96" /> 
+                                      </div>
+              
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <!-- Untuk Pencari Kerja Section -->
+                    <div>
+                        <h3 class="font-semibold mb-4 ml-14">Untuk Pencari Kerja</h3>
+                        <ul class="space-y-2 ml-14">
+                            <li><a href="#" class="hover:underline">Lokasi Pekerjaan</a></li>
+                            <li><a href="#" class="hover:underline">Nama Perusahaan</a></li>
+                            <li><a href="#" class="hover:underline">Kategori Pekerjaan</a></li>
+                            <li><a href="#" class="hover:underline">Lowongan Kerja Populer</a></li>
+                            <li><a href="#" class="hover:underline">Help Center</a></li>
+                        </ul>
+                    </div>
+          
+                    <!-- Untuk Pemberi Kerja Section -->
+                    <div>
+                        <h3 class="font-semibold mb-4 ml-20">Untuk Pemberi Kerja</h3>
+                        <ul class="space-y-2 ml-20">
+                            <li><a href="#" class="hover:underline">Untuk Pemberi Kerja</a></li>
+                            <li><a href="#" class="hover:underline">HR Tips</a></li>
+                            <li><a href="#" class="hover:underline">Glints Platform</a></li>
+                            <li><a href="#" class="hover:underline">Perekrutan</a></li>
+                            <li><a href="#" class="hover:underline">Bakat Terkelola</a></li>
+                        </ul>
+                    </div>
+          
+                    <!-- Perusahaan Section -->
+                    <div class="transform -translate-x-8">
+                        <h3 class="font-semibold mb-4 ml-24">Perusahaan</h3>
+                        <ul class="space-y-2 ml-24">
+                            <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+                            <li><a href="#" class="hover:underline">Tim Kami</a></li>
+                            <li><a href="#" class="hover:underline">Hired Blog</a></li>
+                            <li><a href="#" class="hover:underline">Inside Glints</a></li>
+                            <li><a href="#" class="hover:underline">Tech Blog</a></li>
+                            <li><a href="#" class="hover:underline">Careers</a></li>
+                        </ul>
+                    </div>
+              
+                  <!-- Terdaftar & diawasi oleh Section -->
+                  <div class="ml-1"> <!-- Menghapus transform dan menambah margin kiri -->
+                    <h3 class="font-semibold mb-6">Terdaftar & diawasi oleh</h3>
+                    <div class="flex space-x-8"> <!-- Flexbox untuk menampilkan logo secara berdampingan -->
+                        <img src="img/kominfo.png" alt="Kominfo Logo" width="100" height="80" class="hover:underline" />
+                        <img src="img/kementrian.png" alt="Kementerian Logo" width="100" height="80" class="hover:underline" />
+                    </div>
+                  </div>
+                  
+                </div>
+            </div>
+        </footer>
+        

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBJOB Employer Registration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Use Tailwind CSS to set a custom background image */
+        @layer utilities {
+            .bg-web {
+                background-image: url('img/bg.webp'); /* Adjust the path as needed */
+                background-size: cover; /* Ensure the background covers the entire area */
+                background-position: top center; /* Change this to top or center */
+                background-repeat: no-repeat; /* Prevent the background from repeating */
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center bg-web min-h-screen">
+    <!-- Centered Logo -->
+    <div class="mt-12">
+        <img src="img/logoo.png" alt="DBJOB Logo" class="h-16"> <!-- Adjust height as needed -->
+    </div>
+
+    <!-- Rounded Box for Account Creation -->
+    <div class="bg-white rounded-lg shadow-lg p-12 mt-3 w-[580px] h-[450px] overflow-y-auto"> <!-- Scrollable container with fixed height -->
+                <h2 class="text-xl font-semibold text-center mb-4">Buat Akun Perusahaan Baru</h2>
+        
+        <!-- Company Name Label -->
+        <label class="block text-xs text-gray-700 mb-2" for="company-name">Nama Perusahaan</label>
+        
+        <!-- Input for Company Name -->
+        <input type="text" id="company-name" class="text-xs border rounded-lg w-[500px] p-2 mb-4" placeholder="Ketik nama perusahaan Anda">
+        <label class="block text-xs text-gray-700 mb-2" for="logo-company">Logo Perusahaan</label>
+<!-- Hidden File Input -->
+<input type="file" id="logo-company" class="hidden" accept=".jpg, .jpeg, .png, .pdf">
+
+ <!-- Upload Area with Additional Information -->
+ <div class="flex mb-4"> <!-- Flex container for alignment -->
+    <!-- Rounded Upload Area -->
+    <div class="border border-gray-300 rounded-md p-1 h-20 -ml-1 mb-2 flex flex-col items-center justify-center cursor-pointer hover:bg-gray-100 transition duration-100 w-[80px] mx-auto" onclick="document.getElementById('logo-company').click();"> <!-- Click to open file picker -->
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-7 w-7 text-black font-bold">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+        <span class="text-xs text-black font-bold mt-1">Upload</span> <!-- Added text below the SVG -->
+    </div>
+    <!-- Information Texts -->
+    <div class="mr-40 mt-2 space-y-1"> <!-- Added margin to space from the upload area -->
+        <span class="text-xs text-gray-500 block">Format yang diterima: .jpg, .jpeg, .png</span>
+        <span class="text-xs text-gray-500 block">Rekomendasi ukuran: 120px x 120px</span>
+        <span class="text-xs text-gray-500 block">Ukuran Maksimum: 1 MB</span>
+    </div>
+</div>
+        <!-- Jumlah Karyawan Label -->
+        <label class="-mt-3 block text-xs text-gray-700 mb-2" for="karyawan-name">Jumlah Karyawan</label>
+
+        <!-- Rounded Dropdown for Jumlah Karyawan -->
+        <div class="relative mb-4">
+            <select id="karyawan-name" class="bg-white border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500">
+                <option value="" disabled selected>Belum dipilih</option>
+                <option value="1-10">1-10</option>
+                <option value="11-50">11-50</option>
+                <option value="51-100">51-100</option>
+                <option value="101-200">101-200</option>
+                <option value="201+">201+</option>
+            </select>
+        </div>
+
+         <!-- Jumlah Karyawan Label -->
+         <label class="-mt-1 block text-xs text-gray-700 mb-2" for="karyawan-name">Industri Perusahaan</label>
+
+         <!-- Rounded Dropdown for Jumlah Karyawan -->
+         <div class="relative mb-4">
+             <select id="karyawan-name" class="bg-white border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500">
+                 <option value="" disabled selected>Belum dipilih</option>
+                 <option value="1-10">1-10</option>
+                 <option value="11-50">11-50</option>
+                 <option value="51-100">51-100</option>
+                 <option value="101-200">101-200</option>
+                 <option value="201+">201+</option>
+             </select>
+            </div>
+
+          <!-- Deskripsi singkat perusahaan Label -->
+<label class="-mt-1 block text-xs text-gray-700 mb-2" for="company-description">Deskripsi singkat perusahaan</label>
+
+<!-- Rounded Input for Company Description -->
+<div class="relative mb-4">
+    <textarea id="company-description" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi singkat di sini..."></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="companyCharCount">0</span>/200
+    </div>
+</div>
+
+<label class="-mt-1 block font-bold text-xs text-gray-700 mb-2" for="karyawan-name">Lokasi</label>
+<label class="-mt-1 block text-xs text-gray-700 mb-2" for="karyawan-name">Alamat Lengkap Kantor</label>
+
+<!-- Rounded Input for Address Description -->
+<div class="relative mb-4">
+    <textarea id="alamat-description" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi alamat lengkap di sini..."></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="alamatCharCount">0</span>/200
+    </div>
+</div>
+
+<!-- Provinsi/Kantor and Kota/Kabupaten Fields -->
+<div class="flex justify-between mb-8 ">
+    <!-- Provinsi/Kantor -->
+    <div class="w-1/2 pr-2">
+        <label for="provinsi" class="block text-xs text-gray-700 mb-1">Provinsi Kantor</label>
+        <select id="provinsi" class="bg-white border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500">
+            <option value="">Belum pilih</option>
+            <!-- Add options as needed -->
+        </select>
+    </div>
+    
+    <!-- Kota/Kabupaten -->
+    <div class="w-1/2 pl-2">
+        <label for="kota" class="block text-xs text-gray-700 mb-1">Kota/Kabupaten Kantor</label>
+        <select id="kota" class=" bg-white border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500">
+            <option value="">Belum pilih</option>
+            <!-- Add options as needed -->
+        </select>
+    </div>
+</div>
+
+    <!-- Cancel and Buat Akun Buttons -->
+    <div class="flex justify-end space-x-6 mt-10">
+        <!-- Cancel Button -->
+        <button class="border border-red-700 text-red-700 rounded-lg px-4 py-2 text-xs font-bold ">
+            Kembali
+        </button>
+        
+        <!-- Buat Akun Button -->
+        <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/registemploye5.html" class="bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-white rounded-lg px-4 py-2 text-xs font-bold hover:from-[#A4DB78] hover:to-[#6FBF08] text-center">
+            Buat Akun
+        </a>
+    
+<script>
+    // Function to update character count
+    function updateCharCount(textarea, charCountDisplay) {
+        const charCount = textarea.value.length;
+        charCountDisplay.textContent = Math.min(charCount, 200); // Limit to 200 characters
+    }
+
+    // Validate form function
+    function validateForm() {
+        const companyTextarea = document.getElementById('company-description');
+        const alamatTextarea = document.getElementById('alamat-description');
+        const companyCharCount = companyTextarea.value.length;
+        const alamatCharCount = alamatTextarea.value.length;
+
+        if (companyCharCount < 1) {
+            alert('Deskripsi perusahaan harus memiliki setidaknya 1 karakter.');
+            return false; // Prevent form submission
+        }
+        
+        if (alamatCharCount < 10) { // Adjust minimum character limit as needed
+            alert('Alamat harus memiliki setidaknya 10 karakter.');
+            return false; // Prevent form submission
+        }
+
+        alert('Akun berhasil dibuat!'); // Placeholder for successful submission
+        return true; // Allow form submission (or you can handle submission logic here)
+    }
+
+    // Event listeners for character count updates
+    document.getElementById('company-description').addEventListener('input', function() {
+        updateCharCount(this, document.getElementById('companyCharCount'));
+    });
+
+    document.getElementById('alamat-description').addEventListener('input', function() {
+        updateCharCount(this, document.getElementById('alamatCharCount'));
+    });
+</script>

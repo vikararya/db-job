@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DB Job Preferences</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Tambahkan Tailwind CSS -->
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-50 p-4">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md"> <!-- max-w-md untuk memperlebar ukuran -->
+    
+    <!-- Gambar Profil -->
+    <div class="flex justify-center mb-4">
+      <div class="rounded-full border-4 border-[#77C92A] p-0">
+        <img src="img/sampul.png" alt="Profile Picture" class="rounded-full w-28 h-28 object-cover"> <!-- Ukuran gambar diperkecil -->
+      </div>
+    </div>
+
+    <!-- Heading -->
+    <h2 class="text-2xl font-bold text-center text-[#77C92A] mb-5">Pilih preferensi pekerjaan yang diinginkan</h2>
+
+    <!-- Informasi -->
+    <div class="bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-green-600 p-3 rounded-lg mb-5 flex items-center">
+      <img src="img/lampu.png" alt="Logo" class="w-6 h-6 mr-2"> <!-- Ganti dengan jalur logo Anda -->
+      <p class="text-sm text-left text-gray-500 font-semibold">Informasi ini membantu DB Job menemukan kesempatan yang pas untukmu</p>
+    </div>
+    
+    <!-- Tipe Pekerjaan -->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-medium mb-4">Tipe Pekerjaan*</label>
+      <div class="grid grid-cols-2 gap-3">
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-[#77C92A] checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+          <span class="ml-2 text-gray-700 font-semibold text-sm">Penuh Waktu</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-[#77C92A] checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+          <span class="ml-2 text-gray-700 font-semibold text-sm">Freelance</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-[#77C92A] checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+          <span class="ml-2 text-gray-700 font-semibold text-sm">Paruh Waktu</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-[#77C92A] checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+          <span class="ml-2 text-gray-700 font-semibold text-sm">Magang</span>
+        </label>
+        <label class="inline-flex items-center">
+          <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-[#77C92A] checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+          <span class="ml-2 text-gray-700 font-semibold text-sm">Harian</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Preferensi Kota Kerja -->
+    <div class="mb-4">
+      <label class="block text-gray-700 font-medium mb-">Preferensi kota kerja*</label>
+      <select class="block w-full border border-[#77C92A] rounded-md bg-white focus:ring-green-500 focus:border-[#77C92A] sm:text-sm py-2 px-2">
+        <option>Nama kota</option>
+        <option>Surabaya</option>
+        <option>Jakarta</option>
+        <option>Bandung</option>
+        <!-- Tambahkan pilihan kota lainnya -->
+      </select>
+    </div>
+    
+    <!-- Bersedia Bekerja Remote -->
+    <div class="mb-4">
+      <label class="inline-flex items-center">
+        <input type="checkbox" class="form-checkbox w-4 h-4 appearance-none border-2 border-[#77C92A] rounded-sm checked:bg-black checked:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400">
+        <span class="ml-2 text-gray-700 font-semibold text-sm">Bersedia bekerja remote</span>
+      </label>
+    </div>
+
+    <!-- Tombol Aksi -->
+    <div class="flex justify-between">
+      <button class="text-[#77C92A] font-medium font-semibold"> < Kembali</button>
+      <button class="bg-gradient-to-r from-[#C1EE94] to-[#84D108] text-white font-bold py-2 px-4 rounded-md hover:bg-gradient-to-l hover:from-[#84D108] hover:to-[#C1EE94]">
+        Lanjutkan
+      </button>
+    </div>
+
+  </div>
+</body>
+</html>

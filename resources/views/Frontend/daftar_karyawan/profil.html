@@ -1,0 +1,2991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Db web</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CSS -->
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white border-b fixed top-0 left-0 w-full">
+    <div class="container mx-auto flex justify-between items-center">
+      <!-- Kiri: Logo + Menu -->
+      <div class="flex items-center">
+        <!-- Logo (full ukuran gambar) -->
+        <a href="/index.html">
+          <img src="img/logo.png" alt="Logo" class="h-auto w-auto max-h-16 ml-1"> <!-- Sesuaikan src dengan lokasi file gambar -->
+        </a>
+      </div>
+
+      <!-- Kanan: Masuk dan Fitur -->
+      <div class="relative flex items-center mr-6">
+        <!-- Tombol SVG di sebelah kiri -->
+            <button class="flex items-center mr-4 space-x-3">
+             <img src="img/bell.svg" alt="Notification Icon" class="w-6 h-6 hover:text-black focus:outline-none" />
+            </button>  
+           <img src="img/sampul.png" alt="Identitas" class="w-8 h-8 rounded-full mr-6">
+        <button id="dropdownButton" class="text-xs hover:text-black flex items-center focus:outline-none">
+          LIONEL
+          <svg id="dropdownIcon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1 transition-transform duration-300">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        
+        
+    </div>
+  </nav>
+
+  <!-- Menu Navigasi -->
+<nav class="bg-white shadow-lg py-2 fixed top-16 left-0 w-full ">
+    <div class="container mx-auto flex items-center justify-center">
+        <ul class="flex space-x-8 text-white">
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/landing.123.html" class="text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Home</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/joblist.html" class="text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Lowongan</a>
+            </li>
+            <li>
+                <a href="file:///C:/xampp/htdocs/db_jobs/db-job/resources/views/Frontend/daftar_karyawan/perusahaan.html" class="text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Perusahaan</a>
+            </li>
+            <li>
+                <a href="#" class="text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Event</a>
+            </li>
+            <li>
+                <a href="#" class="text-[#576974] border-b-2 border-transparent hover:border-[#7AD600] focus:border-green-500 transition-all">Artikel</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="dropdownMenu" class="absolute hidden bg-white shadow-md rounded-md w-48 mt-66 justify-left ml-[1100px]">
+    <ul class="py-2">
+        <li> <a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+     </svg>  Profil Saya </a> </li> 
+     <li> <a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+    </svg>  Lamaran Saya </a></li>
+    <li><a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 0 1 1.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.559.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.894.149c-.424.07-.764.383-.929.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 0 1-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.398.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 0 1-.12-1.45l.527-.737c.25-.35.272-.806.108-1.204-.165-.397-.506-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.108-1.204l-.526-.738a1.125 1.125 0 0 1 .12-1.45l.773-.773a1.125 1.125 0 0 1 1.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894Z" />
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+    </svg>Pengaturan akun
+    </a></li>
+    <li>
+<a href="#" class="flex items-center block px-4 py-2 text-gray-700 text-xs hover:bg-gray-100">
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+<path stroke-linecap="round" stroke-linejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
+</svg>Keluar</a></li>
+</ul>
+</div>
+</div>
+
+<script>
+const dropdownButton = document.getElementById('dropdownButton');
+const dropdownMenu = document.getElementById('dropdownMenu');
+const dropdownIcon = document.getElementById('dropdownIcon');
+
+dropdownButton.addEventListener('click', () => {
+  // Toggle the dropdown menu
+  dropdownMenu.classList.toggle('hidden');
+
+  // Rotate the icon when clicked
+  dropdownIcon.classList.toggle('rotate-180');
+});
+
+// Optional: Click outside to close the dropdown
+window.addEventListener('click', (e) => {
+  if (!dropdownButton.contains(e.target)) {
+    dropdownMenu.classList.add('hidden');
+    dropdownIcon.classList.remove('rotate-180');
+  }
+});
+</script>
+
+<div class="container mx-auto py-24 mt-12 p-4 flex justify-start">
+    <div class="w-[820px] h-[310px] shadow-md border border-gray-300 rounded-md p-4">
+        <div class="flex items-start ml-16 mt-6">
+            <img src="img/sampul.png" alt="Foto Vikar Ryo Arya Firmansyah" class="w-32 h-32 rounded-full mr-8">
+            <div>
+                <div class="flex items-start justify-between mb-6">
+                    <h2 class="text-2xl font-bold ml-4">LIONEL MESSI</h2>
+                    <button id="popupButton" class="-mr-52 p-2 focus:outline-none rounded-full border border-[#C3D800] text-[#C3D800] hover:bg-gray-300 transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+                        </svg>
+                    </button>
+                </div>
+            
+       <!-- Pop-up -->
+       <div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden mt-0">
+        <div class="bg-white p-4 mt-10 rounded-lg shadow-lg w-[700px] max-h-[90vh] overflow-y-auto border border-gray-300">
+            <!-- Tombol X untuk menutup pop-up -->
+            <button id="closeSvg" class="flex justify-end">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500 hover:text-red-700">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+            </button>        
+        <h3 class="text-lg text-center font-semibold mb-4">Keterangan Diri</h3>
+
+        <div class="flex justify-center mb-6">
+            <img src="img/sampul.png" alt="Profile Picture" class="w-24 h-24 rounded-full border border-gray-300 shadow-md">
+        </div>
+        
+        <div class="flex space-x-2 mb-4">
+            <input type="text" id="firstName" placeholder="Nama Depan" class="text-xs border border-gray-300 rounded w-4 h-8 px-3 flex-1" required>
+            <input type="text" id="lastName" placeholder="Nama Belakang" class="text-xs border border-gray-300 rounded w-4 h-8 px-3 flex-1" required>
+        </div>
+        
+        <input type="tel" id="phone" placeholder="Nomor Telepon" class="text-xs border border-gray-300 rounded w-4 h-8 w-full px-3" required>
+        
+        <div class="relative mb-6">
+            <input type="email" id="email" placeholder="Email" class="mt-4 text-xs border border-gray-300 rounded w-4 h-8 px-3 w-full" required>
+            <button class="mt-2 absolute right-0 top-1/2 transform -translate-y-1/2 bg-[#97E443] text-white rounded px-6 py-1 text-sm">Verifikasi</button>
+        </div>
+        
+        <div class="text-red-500 mb-2 text-xs flex items-center -mt-4 ">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>              
+            <span>Email belum diverifikasi</span>
+        </div>
+        
+        <input type="text" id="address" placeholder="Alamat" class="text-xs border border-gray-300 rounded w-4 h-8 mb-4 px-3 w-full" required>
+        
+        <div class="flex space-x-2 mb-4">
+            <select id="city" class="text-gray-500 bg-white border border-gray-300 rounded text-xs w-4 h-8 px-3 flex-1">
+                <option value="">Kota</option>
+                <option value="jakarta">Jakarta</option>
+                <option value="surabaya">Surabaya</option>
+                <option value="bandung">Bandung</option>
+                <option value="medan">Medan</option>
+            </select>
+            <select id="province" class="text-gray-500 bg-white border border-gray-300 rounded text-xs w-4 h-8 px-3 flex-1">
+                <option value="">Provinsi</option>
+                <option value="dkijakarta">DKI Jakarta</option>
+                <option value="jatim">Jawa Timur</option>
+                <option value="jateng">Jawa Tengah</option>
+                <option value="sumut">Sumatera Utara</option>
+            </select>
+        </div>
+        
+        <!-- Tanggal Lahir -->
+        <label class="-mt-2 text-gray-500 block mb-1 text-xs font-semibold">Tanggal Lahir</label>
+        <div class="flex space-x-2 mb-4">
+            <select id="day" class="text-gray-500 px-3 text-xs bg-white border border-gray-300 rounded w-4 h-8 flex-1">
+                <option value="" disabled selected>Tanggal</option>
+                <script>
+                    for (let i = 1; i <= 31; i++) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+            <select id="month" class="text-xs px-3 bg-white border border-gray-300 rounded w-4 h-8 flex-1">
+                <option value="" disabled selected>Bulan</option>
+                <option value="1">Januari</option>
+                <option value="2">Februari</option>
+                <option value="3">Maret</option>
+                <option value="4">April</option>
+                <option value="5">Mei</option>
+                <option value="6">Juni</option>
+                <option value="7">Juli</option>
+                <option value="8">Agustus</option>
+                <option value="9">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+            <select id="year" class="text-xs px-3 bg-white border border-gray-300 rounded w-4 h-8 flex-1">
+                <option value="" disabled selected>Tahun</option>
+                <script>
+                    const currentYear = new Date().getFullYear();
+                    for (let i = currentYear; i >= 1900; i--) {
+                        document.write(`<option value="${i}">${i}</option>`);
+                    }
+                </script>
+            </select>
+        </div>
+
+        <!-- Jenis Kelamin -->
+        <label class="-mt-2 block mb-1 text-xs font-semibold text-gray-500">Jenis Kelamin</label>
+        <select id="gender" class="text-gray-500 text-xs px-3 bg-white border border-gray-300 rounded w-4 h-8 mb-3 w-full">
+            <option value="" disabled selected>Pilih Jenis Kelamin</option>
+            <option value="laki-laki">Laki-laki</option>
+            <option value="perempuan">Perempuan</option>
+        </select>
+        
+        <!-- Pendidikan Terakhir -->
+        <label class="-mt-0 block mb-1 text-xs font-semibold text-gray-500">Pendidikan Terakhir</label>
+        <select id="education" class="text-gray-500 text-xs bg-white px-3 border border-gray-300 rounded w-4 h-8 mb-4 w-full">
+            <option value="" disabled selected>Pilih Pendidikan Terakhir</option>
+            <option value="sd">SD</option>
+            <option value="smp">SMP</option>
+            <option value="sma">SMA/SMK</option>
+            <option value="diploma">Diploma</option>
+            <option value="sarjana">Sarjana</option>
+            <option value="magister">Magister</option>
+            <option value="doktor">Doktor</option>
+        </select>
+        
+        <!-- Periode Mulai Bekerja (sebagai teks saja) -->
+        <label class="-mt-0 block mb-1 text-xs font-semibold text-gray-500">Periode Mulai Bekerja</label>
+        
+        <!-- Status Pekerjaan -->
+        <div class="mb-4">
+            <label class="flex items-center text-xs text-gray-500 space-x-2">
+                <input type="radio" name="employmentStatus" value="belum bekerja" class="form-radio text-green-500">
+                <span>Saya belum pernah bekerja</span>
+            </label>
+            <label class="flex items-center text-xs text-gray-500 space-x-2 mt-2">
+                <input type="radio" name="employmentStatus" value="masih bekerja" class="form-radio text-green-500">
+                <span>Saya masih bekerja di sini</span>
+            </label>
+        </div>
+        
+        <!-- Tombol Batal dan Simpan -->
+        <div class="flex justify-end space-x-2 mt-2">
+            <button id="closePopup" class="p-2 px-3 text-xs text-gray-500 rounded border border-red-500">Batal</button>
+            <button id="saveButton" class="p-2 px-3 bg-[#97E443] text-xs text-white rounded">Simpan</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Menampilkan pop-up saat tombol di-klik
+    document.getElementById('popupButton').onclick = function() {
+        document.getElementById('popup').classList.remove('hidden'); // Tampilkan pop-up
+    };
+
+    // Menyembunyikan pop-up saat tombol Batal di-klik
+    document.getElementById('closePopup').onclick = function() {
+        document.getElementById('popup').classList.add('hidden'); // Sembunyikan pop-up
+    };
+     // Menyembunyikan pop-up saat tombol SVG di-klik
+     document.getElementById('closeSvg').onclick = function() {
+        document.getElementById('popup').classList.add('hidden'); // Sembunyikan pop-up
+    };
+
+    // Menyembunyikan pop-up saat tombol Simpan di-klik
+    document.getElementById('saveButton').onclick = function() {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const phone = document.getElementById('phone').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+        const city = document.getElementById('city').value;
+        const province = document.getElementById('province').value;
+        const day = document.getElementById('day').value;
+        const month = document.getElementById('month').value;
+        const year = document.getElementById('year').value;
+        const gender = document.getElementById('gender').value;
+        
+        // Contoh: tampilkan data di konsol
+        console.log(`Nama: ${firstName} ${lastName}, Nomor Telepon: ${phone}, Email: ${email}, Alamat: ${address}, Kota: ${city}, Provinsi: ${province}, Tanggal Lahir: ${day}-${month}-${year}, Jenis Kelamin: ${gender}`);
+
+        // Sembunyikan pop-up setelah klik Simpan
+        document.getElementById('popup').classList.add('hidden');
+    };
+</script>
+                
+                <div class="grid grid-cols-2 gap-4 ml-4">
+                    <div>
+                        <p class="text-xs">Nomor Telepon</p>
+                        <p class="text-xs p-2 w-full -ml-2">085655474444</p>
+                    </div>
+                    <div>
+                        <p class="text-xs">Email (Belum terverifikasi)</p>
+                        <p class="text-xs p-2 w-full -ml-2">Masukkan nomor</p>
+                    </div>
+                    <div>
+                        <p class="text-xs">Lokasi</p>
+                        <p class="text-xs p-2 w-full -ml-2  ">Rungkut, Jawa Timur</p>
+                    </div>
+                    <div>
+                        <p class="text-xs">Usia, Jenis Kelamin</p>
+                        <p class="text-xs p-2 w-full -ml-2 ">22, Laki-laki</p>
+                    </div>
+                    <div>
+                        <p class="text-xs">Pendidikan Terakhir</p>
+                        <p class="text-xs p-2 w-full -ml-2 ">SMK</p>
+                    </div>
+                    <div>
+                        <p class="text-xs">Pengalaman Kerja</p>
+                        <p class="text-xs p-2 w-full -ml-2 ">3 Tahun</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section for Visitors -->
+    <div class="w-[340px] h-[200px] shadow-md border border-gray-300 rounded-lg p-4 ml-6 flex flex-col justify-center items-center">
+        <div class="w-full">
+            <p class="text-base font-bold">Pengunjung Profil</p>
+            <p class="text-xs mt-2">999,9K pemirsa mengunjungi profil Anda dalam 30 hari terakhir</p>
+            
+            <hr class="my-4 w-full border-gray-300" /> <!-- Separator line -->
+            
+            <div class="w-full">
+                <p class="text-base font-bold">Profil Publik & Tautan</p>
+                <div class="flex items-center mt-3">
+                    <span class="text-xs border p-2 rounded-md border-gray-300 w-full bg-white">www.dbjob.com</span>
+                   <button class="ml-1 p-2 rounded-md bg-[#84D108] hover:bg-[#84D108] text-white transition-colors flex items-center">
+ <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-white">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 0 1 1.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 0 0-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 0 1-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H9.75" />
+</svg>
+
+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mx-auto -mt-24 p-4">
+    <!-- Garis Pemisah -->
+    <hr class="border-gray-300 my-6">
+    
+    <div class="flex flex-row space-x-8">
+        <!-- Bagian Kiri: Tombol Fitur -->
+        <div class="flex flex-col mt-4 text-base space-y-1">
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'tentang-saya')">Tentang saya</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'pengalaman-kerja')">Pengalaman Kerja</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'pendidikan')">Pendidikan</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'skill-minat')">Skill & Minat</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'resume')">Resume</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'portofolio-media')">Portofolio & Media Sosial</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'penghargaan')">Penghargaan</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'sertifikat')">Sertifikat</button>
+            <button class="text-left p-2 transition-colors" onclick="selectFeature(this, 'pengalaman-organisasi')">Pengalaman Organisasi</button>
+        </div>
+        
+        <!-- Bagian Kanan: Konten Dinamis -->
+        <div class="flex-grow bg-gray-50 p-6 rounded-lg shadow">
+            <div id="content">
+                <div class="flex justify-between items-center">
+        </div>
+    </div>
+    
+    <script>
+        function selectFeature(element, section) {
+            // Reset styling for buttons
+            document.querySelectorAll('button').forEach(btn => {
+                btn.classList.remove('border-l-4', 'border-[#84D108]', 'text-[#84D108]');
+                btn.classList.add('hover:bg-white');
+            });
+            element.classList.add('border-l-4', 'border-[#84D108]', 'text-[#84D108]');
+    
+            let content = document.getElementById('content');
+            let sections = {
+                'tentang-saya': {
+                    title: 'Tentang Saya',
+                    text: 'Jelaskan kepada perusahaan mengapa Anda menjadi kandidat yang unggul untuk direkrut.',
+                    editButtonTentang: true
+                }, // Pengalaman
+                'pengalaman-kerja': {
+        title: 'Pengalaman Kerja',
+        text: `
+           <div class="relative rounded-md border text-black p-4 border-gray-300">
+           <div class="flex justify-between items-start">
+          <span class="block text-sm font-semibold mt-2">UI/UX Designer</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+       <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+       </svg>
+
+            </button>
+            </div>
+       </div>
+
+       <span class="block text-xs mt-2">DB KLIK | Internship</span>
+       <span class="block text-xs mt-2 text-gray-400">October - Present</span>
+
+       <div class="flex items-center mt-2">
+        <span class="text-xs mr-2">Tools:</span>
+        <div class="flex space-x-2">
+            <span class="rounded-full border border-[#7AD600] text-black px-3 py-1 text-xs">Figma</span>
+            <span class="rounded-full border border-[#7AD600] text-black px-3 py-1 text-xs">Adobe</span>
+        </div>
+        </div>
+    
+        <!-- Positioned image in the bottom-right corner -->
+        <img src="img/tas.png" alt="Tas Icon" class="absolute bottom-2 right-20 w-32 h-20">
+         </div>
+        </div>
+            </div>
+
+            <div class="relative rounded-md border text-black p-4 border-gray-300 mt-6">
+        <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">UI/UX Designer</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+        </svg>
+
+            </button>
+        </div>
+        </div>
+
+        <span class="block text-xs mt-2">DB KLIK | Internship</span>
+        <span class="block text-xs mt-2 text-gray-400">October - Present</span>
+
+       <div class="flex items-center mt-2">
+        <span class="text-xs mr-2">Tools:</span>
+        <div class="flex space-x-2">
+            <span class="rounded-full border border-[#7AD600] text-black px-3 py-1 text-xs">Figma</span>
+            <span class="rounded-full border border-[#7AD600] text-black px-3 py-1 text-xs">Adobe</span>
+        </div>
+        </div>
+        <span class="block text-xs mt-2 text-gray-400">Lorem ipsum dolor sit amet, consectetur adipiscing e</span>
+
+
+         <!-- Positioned image in the bottom-right corner -->
+         <img src="img/tas.png" alt="Tas Icon" class="absolute bottom-2 right-20 w-32 h-20">
+          </div>
+        </div>
+            </div>
+        `,
+            editButtonPengalaman: true, // sebelum ada isi
+            editButtonIsiPengalaman: true // sesudah ada isi
+            
+             }, // Pendidikan 
+            'pendidikan': {
+                title: 'Pendidikan',
+                text: `
+           <div class="relative rounded-md border text-black p-4 border-gray-300">
+        <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">UPN VETERAN JAWA TIMUR</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+         </svg>
+
+            </button>
+        </div>
+        </div>
+
+        <span class="block text-xs mt-2">INFORMATIKA</span>
+        <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun )</span>
+    
+        <!-- Positioned image in the bottom-right corner -->
+       <img src="img/tas2.png" alt="Tas Icon" class="absolute bottom-2 right-20 w-28 h-16">
+       </div>
+        </div>
+            </div>
+
+            <div class="relative rounded-md border text-black p-4 border-gray-300 mt-6">
+        <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">Univ Brawijaya</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+        </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+        </svg>
+
+            </button>
+        </div>
+        </div>
+
+        <span class="block text-xs mt-2">Informatika</span>
+        <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun)</span>
+
+       <!-- Positioned image in the bottom-right corner -->
+       <img src="img/tas2.png" alt="Tas Icon" class="absolute bottom-2 right-20 w-28 h-16">
+       </div>
+        </div>
+            </div>  `,
+                editButtonPendidikan: true, // Sebelum ada isi"
+                editButtonIsiPendidikan: false, // SESUDAH
+
+            }, // SKILL"
+            'skill-minat': {
+                title: 'Skills',
+                 text: `
+                 <div>
+            <div class="flex space-x-2 mt-2">
+                <div class="text-sm font-semibold text-white bg-[#7AD600] rounded-lg px-3 py-1">Skill 1</div>
+                <div class="text-sm font-semibold text-white bg-[#7AD600] rounded-lg px-3 py-1">Skill 2</div>
+                <div class="text-sm font-semibold text-white bg-[#7AD600] rounded-lg px-3 py-1">Skill 3</div>
+            </div>
+            </div>
+            </div>
+
+            <h3 class="text-lg font-semibold mt-4 flex justify-between items-center">
+                <span>Minat</span>
+            </h3>
+            <div class="mt-2 flex items-center">
+           <h4 class="text-md ">Tipe Pekerjaan</h4>
+            <span class="bg-[#7AD600] text-white rounded-lg px-3 py-1 text-sm flex-shrink-0 ml-[110px]">Magang</span>
+           </div>
+
+           <div class="mt-3 flex items-center">
+    <h4 class="text-md ">Preferensi Kota Kerja</h4>
+    <span class="bg-[#7AD600] text-white rounded-lg px-3 py-1 text-sm flex-shrink-0 ml-16">Surabaya, Jawa Timur</span>
+    </div>
+
+    <div class="mt-3 flex items-center">
+    <h4 class="text-md ">Bersedia Bekerja Remote</h4>
+    <span class="bg-[#7AD600] text-white rounded-lg px-3 py-1 text-sm flex-shrink-0 ml-9">TIDAK</span>
+    </div>     
+
+    <div class="mt-3 flex items-start">
+    <h4 class="text-md mr-4">Bidang Minat</h4>
+    <div class="ml-24 rounded-lg border border-gray-300 p-3 bg-[#D6F5B4]">
+        <h4 class="font-semibold text-md text-white text-center mb-1 border bg-[#7AD600] rounded-lg">IT</h4>
+        <ul class=" text-center">
+            <li>Front end</li>
+            <li>BE</li>
+            <li>QA</li>
+            <li>FULLSTACK</li>
+        </ul>
+     </div>
+     <div class="ml-2 rounded-lg border border-gray-300 p-3 bg-[#D6F5B4]">
+        <h4 class="font-semibold text-md text-white text-center mb-1 border bg-[#7AD600] rounded-lg">IT</h4>
+        <ul class="text-center">
+            <li>Front end</li>
+            <li>BE</li>
+            <li>QA</li>
+            <li>FULLSTACK</li>
+        </ul>
+    </div>
+    <div class="ml-2 rounded-lg border border-gray-300 p-3 bg-[#D6F5B4]">
+        <h4 class="font-semibold text-md text-white text-center mb-1 border bg-[#7AD600] rounded-lg">IT</h4>
+        <ul class="text-center">
+            <li>Front end</li>
+            <li>BE</li>
+            <li>QA</li>
+            <li>FULLSTACK</li>
+        </ul>
+     </div>   `,
+            editButtonSkillminat: true,
+            editButtonSkillminat2: true,
+            editButtonSkill: true // Flag untuk tombol "Acc Resume"
+
+        }, // Resume
+        'resume': {
+        title: 'Resume',
+        text: `
+    <div class="inline-flex items-center bg-white border border-gray-300 rounded-lg p-1"> <!-- Menggunakan inline-flex untuk menyesuaikan panjang dengan konten -->
+    <div class="bg-[#97E443] rounded-lg flex items-center p-1"> <!-- Membungkus gambar dan teks dengan warna hijau -->
+        <img src="img/pdf.png" alt="Logo" class="w-6 h-6" />
+    </div>
+    <span class="text-xs font-semibold text-[#97E443] ml-4">123aaaaaaaaaaaaaaaaaa.pdf</span> <!-- Teks dalam elemen hijau -->
+    </div>
+    </div> `,
+        editButtonResume: true, // sebelum isi
+        editButtonIsiResume: true, // sesudah
+
+    }, // Portofolio"
+        'portofolio-media': {
+            title: 'Portofolio & Media Sosial',
+            text: `
+    <div class="flex flex-col">
+    <div class="flex items-center">
+        <span class="text-black font-semibold">link portofolio</span>
+        <a href="http://porto.com" class="ml-8 text-[#7AD600] hover:underline" target="_blank">http://porto.com</a>
+    </div>
+
+    <div class="mt-4 flex flex-col">
+    <div class="flex items-center">
+        <span class="text-black font-semibold">link portofolio</span>
+        <a href="http://www.githubvikar.com" target="_blank" class=" ml-8 flex items-center">
+            <img src="img/pdff.svg" alt="GitHub Logo" class=" shadow-md w-4 h-4 mr-2" />
+            123tes.pdf
+        </a>
+    </div>
+
+   <div class="mt-4 flex flex-col">
+    <div class="flex items-center">
+        <span class="text-black font-semibold">link portofolio</span>
+        <a href="http://www.githubvikar.com" target="_blank" class="text-[#7AD600] ml-8 flex items-center">
+            <img src="img/github-mark.png" alt="GitHub Logo" class="w-4 h-4 mr-2" />
+            www.githubvikar.com
+        </a>
+    </div>
+
+    <div class="flex items-center mt-2">
+        <a href="http://www.instagram.com/yourusername" target="_blank" class="text-[#7AD600] ml-32 flex items-center">
+            <img src="img/igbg.png" alt="Instagram Logo" class="w-7 h-7 mr-1" />
+            www.instagram.com/yourusername
+        </a>
+    </div>
+    </div>    `,
+            editButtonPortofolio: true, // Sebelum Isi
+            editButtonIsiPortofolio: true  // Sesudah isi
+
+
+        }, // penghargaan
+        'penghargaan': {
+            title: 'Penghargaan',
+            text: `
+           <div class="relative rounded-md border text-black p-4 border-gray-300">
+    <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">Lomba Tidur</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+    </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+   <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+   </svg>
+
+            </button>
+        </div>
+    </div>
+
+    <span class="block text-xs mt-2">Juara 1 tingkat provinsi</span>
+    <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun )</span>
+    
+    <!-- Positioned image in the bottom-right corner -->
+    <img src="img/piala.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-20 h-12">
+    </div>
+        </div>
+            </div>
+
+            <div class="relative rounded-md border text-black p-4 border-gray-300 mt-6">
+    <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">Lomba Ngantuk</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+    </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+     <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+     </svg>
+            </button>
+        </div>
+    </div>
+
+    <span class="block text-xs mt-2">Juara 2 surabaya</span>
+    <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun)</span>
+
+    <!-- Positioned image in the bottom-right corner -->
+    <img src="img/piala.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-20 h-12">
+    </div>
+        </div>
+            </div>     `,
+            editButtonPenghargaan: true, // Sebelum isi
+            editButtonIsiPenghargaan: true // Sesudah isi
+
+
+        }, // sertifikat
+        'sertifikat': {
+            title: 'Sertifikat',
+            text: `
+           <div class="relative rounded-md border text-black p-4 border-gray-300">
+       <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">Sertifikat Bahasa Inggris</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+    </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+  <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+   </svg>
+
+            </button>
+        </div>
+    </div>
+
+    <span class="block text-xs mt-2">Language Center</span>
+    <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun )</span>
+    
+    <!-- Positioned image in the bottom-right corner -->
+    <img src="img/verifikasi.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-28 h-16">
+    </div>
+        </div>
+            </div>
+
+            <div class="relative rounded-md border text-black p-4 border-gray-300 mt-6">
+        <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold mt-2">Sertifikat Tidur</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+       </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+       <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+       </svg>
+            </button>
+        </div>
+        </div>
+
+        <span class="block text-xs mt-2">Organisasai Siswa Intra Sekolah</span>
+       <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun)</span>
+
+        <!-- Positioned image in the bottom-right corner -->
+        <img src="img/verifikasi.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-28 h-16">
+        </div>
+        </div>
+            </div>  `,
+            editEditButtonSertifikat: true, // Sebelum Isi
+            editEditButtonIsiSertifikat: true // Sesudah Isi
+
+
+        }, // pengalaman organisasi
+        'pengalaman-organisasi': {
+            title: 'Pengalaman & Organisasi',
+            text: `
+           <div class="relative rounded-md border text-black p-4 border-gray-300">
+           <div class="flex justify-between items-start">
+          <span class="block text-sm font-semibold -mt-0">Informasi, Komunikasi dan Multimedia GPIB Eben Haezer Surabaya</span>
+        
+          <!-- Delete and Edit Buttons -->
+         <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+         </svg>
+         </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+         <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+         </svg>
+
+         </button>
+        </div>
+    </div>
+
+    <span class="block text-xs mt-0">Anggota Pengurus</span>
+    <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun )</span>
+    
+    <!-- Positioned image in the bottom-right corner -->
+    <img src="img/pengalaman.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-28 h-16">
+    </div>
+        </div>
+            </div>
+
+    <div class="relative rounded-md border text-black p-4 border-gray-300 mt-6">
+    <div class="flex justify-between items-start">
+        <span class="block text-sm font-semibold -mt-0">Orientasi Mahasiswa Kristen Baru UKKK UPN "Veteran" Jawa Timur</span>
+        
+        <!-- Delete and Edit Buttons -->
+        <div class="flex space-x-2 mt-2">
+          <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 text-red-700">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+        </svg>
+      </button>
+            <button class="w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" />
+       </svg>
+    </button>
+        </div>
+    </div>
+
+    <span class="block text-xs mt-0">Kepala Divisi Publikasi dan Dokumentasi</span>
+    <span class="block text-xs mt-2 text-gray-400">October - Present (2 tahun)</span>
+
+    <!-- Positioned image in the bottom-right corner -->
+    <img src="img/pengalaman.png" alt="Tas Icon" class="absolute bottom-2 right-24 w-28 h-16">
+    </div>
+        </div>
+            </div>  `,
+            editEditButtonPengalamanOrganisasi: true, //SEBELUM ISI
+            editEditButtonIsiPengalamanOrganisasi: true, //SESUDAH ISI
+        },
+
+            };
+            let sectionData = sections[section];
+        content.innerHTML = `
+            <div class="flex justify-between items-center">
+                <h2 class="text-xl font-semibold">${sectionData.title}</h2>
+                ${sectionData.editButtonTentang ? createEditButton('tentang-saya', 'EDIT') : ''}
+                ${sectionData.firstButtonTentang ? createFirstButton('tentang-saya', 'Tambahkan Pengalaman Kerja') : ''}
+                    ${sectionData.editButtonPengalaman ? createEditButtonPengalaman('pengalaman-kerja') : ''}
+                    ${sectionData.editButtonPendidikan ? createEditButtonPendidikan('pendidikan') : ''}
+                    ${sectionData.editButtonSkill ? createEditButtonSkill('skill') : ''}
+                    ${sectionData.editButtonSkill ? createEditButtonSkillminat('skill2') : ''}
+                    ${sectionData.editButtonSkill ? createEditButtonSkillminat2('skill3') : ''}
+                    ${sectionData.editButtonResume ? createEditButtonResume('resume') : ''}
+                    ${sectionData.editButtonPortofolio ? createEditButtonPortofolio('portofolio') : ''}
+                    ${sectionData.editButtonPenghargaan ? createEditButtonPenghargaan('penghargaan') : ''}
+                     ${sectionData.editEditButtonSertifikat ? createEditButtonSertifikat('sertifikat') : ''}
+                    ${sectionData.editEditButtonPengalamanOrganisasi ? createEditButtonPengalamanOrganisasi('pengalaman-organisasi') : ''}
+
+
+                    ${sectionData.editButtonPengalaman ? createEditButtonIsiPengalaman('pengalaman2') : ''} 
+                     ${sectionData.editButtonPendidikan ? createEditButtonIsiPendidikan('pendidikan2') : ''} 
+                    ${sectionData.editButtonResume ? createEditButtonIsiResume('resume2') : ''}
+                     ${sectionData.editButtonPortofolio ? createEditButtonIsiPortofolio('portofolio2') : ''}
+                     ${sectionData.editButtonPenghargaan ? createEditButtonIsiPenghargaan('penghargaan2') : ''}
+                     ${sectionData.editEditButtonSertifikat ? createEditButtonIsiSertifikat('sertifikat2') : ''}
+                    ${sectionData.editEditButtonPengalamanOrganisasi ? createEditButtonIsiPengalamanOrganisasi('pengalaman-organisasi2') : ''}
+
+
+                </div>
+                <p class="mt-4">${sectionData.text}</p>
+            `;
+        }
+        function createEditButton(section) {
+            return `
+                <button onclick="showPopup('${section}')"class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;
+        }
+
+        function createEditButtonPengalaman(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;    
+        }
+        function createEditButtonIsiPengalaman(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;   
+        }
+        function createEditButtonPendidikan(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;   
+        }
+        function createEditButtonIsiPendidikan(section) {
+            return `
+                 <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;  
+        }
+        function createEditButtonSkill(section) {
+    return `
+        <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-md space-x-1 -mr-[470px]">
+            <span>EDIT SKILL</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+            </svg>
+        </button>`;
+}
+function createEditButtonSkillminat(section) {
+    return `
+        <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-md space-x-1 -mr-[470px]">
+            <span>EDIT MINAT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+            </svg>
+        </button>`;
+}
+function createEditButtonSkillminat2(section) {
+    return `
+        <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-md space-x-1">
+            <span>EDIT BIDANG MINAT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+            </svg>
+        </button>`;
+}
+
+        function createEditButtonResume(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;     
+        }
+        function createEditButtonIsiResume(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;   
+        }
+        function createEditButtonPortofolio(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;
+        }
+        function createEditButtonIsiPortofolio(section) {
+            return `
+                 <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;
+        }
+        function createEditButtonPenghargaan(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;
+        }
+        function createEditButtonIsiPenghargaan(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;
+        }
+        function createEditButtonSertifikat(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;
+        } 
+        function createEditButtonIsiSertifikat(section) {
+            return `
+               <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;
+        } 
+        function createEditButtonPengalamanOrganisasi(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=w-4 h-4">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                    <span>TAMBAH</span>
+                </button>`;
+        }
+        function createEditButtonIsiPengalamanOrganisasi(section) {
+            return `
+                <button onclick="showPopup('${section}')" class="flex items-center text-sm font-semibold text-[#7AD600] px-4 py-2 rounded-lg border shadow-md space-x-1">
+                    <span>EDIT</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487L19.5 7.125" />
+                    </svg>
+                </button>`;
+        }
+    
+        function showPopup(section) {
+            alert(`Popup for ${section}`);
+        }
+    </script>
+
+        <!-- Action Tentang -->
+
+        <div id="popup-modal-tentang" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                <!-- Close Button (X Icon) -->
+                <button onclick="closePopup('tentang-saya')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+        
+                <!-- Popup Title -->
+                <h2 class="text-lg font-bold text-center mt-2 mb-3">Tentang Saya</h2>
+                <h2 class="text-sm text-center mb-4">Memberitahu tentang dirimu sehingga perusahaan lebih mudah memahamimu.</h2>
+                
+                <!-- Input Field -->
+                <textarea id="input-tentang-saya" class="w-full p-2 border rounded-lg mb-4" rows="4" placeholder="Masukkan deskripsi tentang Anda..."></textarea>
+                
+                <!-- Action Buttons -->
+                <div class="flex justify-end mt-4 space-x-4">
+                    <button onclick="closePopup('tentang-saya')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+                    <button id="save-button" onclick="saveInput('tentang-saya')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+                </div>
+            </div>
+        </div>
+
+
+         <!-- Action PRNGALAMANNNNNNNNNNNNNNNNNNNNNNN ORGANISASIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII 2222222222222222222222222222222222222 -->
+
+         <div id="popup-modal-pengalaman-organisasi2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                 <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('pengalaman-organisasi')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Pengalaman Organisasi</h2>
+        
+        <!-- Label for Award Title -->
+        <label for="Nama" class="block text-xs text-gray-500 font-semibold mb-1">Nama Organisasi atau kegiatan</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Nama Organisasi...">
+
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Posisi</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="Organisasi Pnerbit" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Posisi...">
+        
+       <!-- Dimulai Label and Dropdowns -->
+       <label class="block mb-0 mt-3 text-xs font-semibold">Dimulai</label>
+       <div class="flex items-center mb-2 text-xs">
+           <!-- Month Dropdown -->
+           <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+               <option value="">Bulan</option>
+               <option value="01">Januari</option>
+               <option value="02">Februari</option>
+               <option value="03">Maret</option>
+               <option value="04">April</option>
+               <option value="05">Mei</option>
+               <option value="06">Juni</option>
+               <option value="07">Juli</option>
+               <option value="08">Agustus</option>
+               <option value="09">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+           </select>
+           <!-- Year Dropdown -->
+           <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+               <option value="">Tahun</option>
+               <!-- Example years -->
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+               <option value="2023">2023</option>
+               <option value="2024">2024</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+           </select>
+       </div>
+
+       <!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-2 -mt-0">
+   <input type="checkbox" id="masih-bekerja" class="mr-2">
+   <label for="masih-bekerja" class="text-xs text-gray-500">Saya masih menjadi sukarelawan disini</label>
+</div>
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Berakhir</label>
+<div class="flex items-center mb-2 text-xs">
+    <!-- Month Dropdown -->
+    <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+    </select>
+    <!-- Year Dropdown -->
+    <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+        <option value="">Tahun</option>
+        <!-- Example years -->
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+<label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+<div class="relative mb-4">
+    <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="informasiCharCount">0</span>/200
+    </div>
+</div>
+
+             <!-- Action Buttons -->
+       <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('pengalaman-organisasi')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+        <button id="save-button" onclick="saveInput('pengalaman-organisasi')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+    </div>
+  </div>
+</div>
+<script>
+    function updateCharCount() {
+        const textarea = document.getElementById('informasi');
+        const charCount = document.getElementById('informasiCharCount');
+        charCount.textContent = textarea.value.length;
+    }
+    </script>
+
+
+         <!-- Action SERTIFIKATTTTTTTTTTTT222 222222 -->
+
+         <div id="popup-modal-sertifikat2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                <!-- Close Button (X Icon) -->
+                <button onclick="closePopup('sertifikat2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+        
+                <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Sertifikat</h2>
+        
+        <!-- Label for Award Title -->
+        <label for="Nama" class="block text-xs text-gray-500 font-semibold mb-1">Nama Sertifikat</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Nama Sertifikat...">
+
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Organisasi Pnerbit</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="Organisasi Pnerbit" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Organisasi Pnerbit...">
+        
+       <!-- Dimulai Label and Dropdowns -->
+       <label class="block mb-0 mt-3 text-xs font-semibold">Dimulai</label>
+       <div class="flex items-center mb-2 text-xs">
+           <!-- Month Dropdown -->
+           <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+               <option value="">Bulan</option>
+               <option value="01">Januari</option>
+               <option value="02">Februari</option>
+               <option value="03">Maret</option>
+               <option value="04">April</option>
+               <option value="05">Mei</option>
+               <option value="06">Juni</option>
+               <option value="07">Juli</option>
+               <option value="08">Agustus</option>
+               <option value="09">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+           </select>
+           <!-- Year Dropdown -->
+           <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+               <option value="">Tahun</option>
+               <!-- Example years -->
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+               <option value="2023">2023</option>
+               <option value="2024">2024</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+           </select>
+       </div>
+
+       <!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-2 -mt-0">
+   <input type="checkbox" id="masih-bekerja" class="mr-2">
+   <label for="masih-bekerja" class="text-xs text-gray-500">Sertifikat ini tidak memiliki batas waktu masa aktif</label>
+</div>
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Berakhir</label>
+<div class="flex items-center mb-2 text-xs">
+    <!-- Month Dropdown -->
+    <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+    </select>
+    <!-- Year Dropdown -->
+    <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+        <option value="">Tahun</option>
+        <!-- Example years -->
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+<label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+<div class="relative mb-4">
+    <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="informasiCharCount">0</span>/200
+    </div>
+</div>
+
+      
+      <!-- Action Buttons -->
+      <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('sertifikat2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+        <button id="save-button" onclick="saveInput('sertifikat2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+    </div>
+  </div>
+</div>
+<script>
+    function updateCharCount() {
+        const textarea = document.getElementById('informasi');
+        const charCount = document.getElementById('informasiCharCount');
+        charCount.textContent = textarea.value.length;
+    }
+    </script>
+
+ <!-- Action PENGHARGAANNNNNNNNNNNNN22222 2222 -->
+
+ <div id="popup-modal-penghargaan2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('penghargaan2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+       <!-- Popup Title -->
+       <h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Penghargaan</h2>
+        
+       <!-- Label for Award Title -->
+       <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1">Judul Penghargaan</label>
+       
+       <!-- Rounded Input for Award Title -->
+       <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan judul penghargaan...">
+
+       <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Judul Prestasi atau Kontribusi</label>
+       
+       <!-- Rounded Input for Award Title -->
+       <input type="text" id="judul-prestasi" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan judul Prestasi...">
+
+       <label for="tahun-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Tahun</label>
+       
+       <!-- Rounded Input for Award Title -->
+       <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Tahun...">
+
+       <label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+        <!-- Textarea for Additional Information with Character Count -->
+        <div class="relative mb-4">
+           <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+           <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+               <span id="informasiCharCount">0</span>/200
+           </div>
+       </div>
+
+       <div class="flex justify-end mt-4 space-x-4">
+                       <button onclick="closePopup('penghargaan2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+           <button id="save-button" onclick="saveInput('penghargaan2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+       </div>
+   </div>
+</div>
+
+<script>
+function updateCharCount() {
+   const textarea = document.getElementById('informasi');
+   const charCount = document.getElementById('informasiCharCount');
+   charCount.textContent = textarea.value.length;
+}
+</script>
+
+
+        <!-- Action PORTOFOLIOOOO 22222222222222222222222 -->
+
+        <div id="popup-modal-portofolio2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+               <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('portofolio2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Portofolio & Media Sosial</h2>
+        
+        <!-- Portfolio Site Input -->
+        <div class="mb-4">
+            <label for="portfolio-site" class="block text-xs font-bold mb-1">Situs Portofolio</label>
+            <div class="relative">
+                <!-- Input Field -->
+                <input type="text" id="portfolio-site" placeholder="Contoh: https://yoursite.com/..."
+                class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+         
+         <!-- Clear Button with SVG Icon -->
+         <button onclick="document.getElementById('portfolio-site').value='';" 
+                 class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+             </svg>
+         </button>
+            </div>
+              <!-- Upload Instructions -->
+        <p class="text-xs text-gray-500 mb-2 mt-3">
+            Upload proyek atau sampel pekerjaan (gambar dan PDF diterima), file harus lebih kecil dari 3 MB.
+        </p>
+
+        <h2 class="flex justify-left">
+            <label for="file-upload" class="cursor-pointer bg-[#7AD600] text-white font-semibold p-2 text-xs rounded hover:bg-green-600 transition-colors text-left w-28 h-8 flex items-center">
+                <input type="file" id="file-upload" class="hidden" accept=".png, .jpg, .jpeg, .pdf">
+                
+                <!-- SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+                </svg>
+        
+                <!-- Text -->
+                Upload File
+            </label>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="github-site" class="block text-xs font-bold mb-1">Link Media Sosial</label>
+            <div class="flex items-center mb-1">
+                <img src="img/github-mark.png" alt="GitHub logo" class="w-4 h-4 mr-2">
+                <label for="github-site" class="text-xs">GitHub</label>
+            </div>
+            <div class="relative">
+                <input type="text" id="github-site" placeholder="Contoh: https://github.com/..."
+                       class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+                
+                <!-- Clear Button with SVG Icon -->
+                <button onclick="document.getElementById('github-site').value='';" 
+                        class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+</div>
+<h2 class="mb-4 mt-3">
+    <div class="flex items-center mb-1">
+        <img src="img/linkedin.svg" alt="GitHub logo" class="w-4 h-4 mr-2">
+        <label for="github-site" class="text-xs">Linkedin</label>
+    </div>
+    <div class="relative">
+        <input type="text" id="linkedin-site" placeholder="Contoh: https://instargan.com/..."
+               class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+        
+        <!-- Clear Button with SVG Icon -->
+        <button onclick="document.getElementById('linkedin-site').value='';" 
+                class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+</div>     
+<h3 class="mb-4 mt-3">
+    <div class="flex items-center mb-1">
+        <img src="img/instagram.svg" alt="GitHub logo" class="w-4 h-4 mr-2">
+        <label for="github-site" class="text-xs">Instagram</label>
+    </div>
+    <div class="relative">
+        <input type="text" id="instagram-site" placeholder="Contoh: https://instargan.com/..."
+               class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+        
+        <!-- Clear Button with SVG Icon -->
+        <button onclick="document.getElementById('instagram-site').value='';" 
+                class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+</div>
+             
+                <!-- Action Buttons -->
+                <h3 class="flex justify-end mt-4 space-x-4">
+                    <button onclick="closePopup('portofolio2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+                    <button id="save-button" onclick="saveInput('portofolio2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+                </div>
+            </div>
+        </div>
+
+<!-- Action bidang minat -->
+
+<div id="popup-modal-skill3" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('skill3')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Bidang Minat Pekerjaan</h2>
+        <!-- Bidang Pekerjaan Section -->
+        <div class="mb-4">
+            <label for="bidangPekerjaan" class="block text-sm font-semibold text-gray-700 mb-2">Bidang Pekerjaan</label>
+            
+            <h1 class="flex items-center space-x-2">
+                <!-- Dropdown -->
+                <select id="bidangPekerjaan" class="w-full p-2 text-xs text-gray-600 font-semibold border bg-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="developer">PEGAWAI</option>
+                    <option value="designer">Designer</option>
+                    <option value="manager">Manager</option>
+                </select>
+                
+                <!-- Button with Red Border and Trash SVG -->
+                <button class="border-2 border-red-500 rounded-lg p-2 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-500">
+                        <path fill-rule="evenodd" d="M6 2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2h4a1 1 0 0 1 0 2H14v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4H2a1 1 0 0 1 0-2h4z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mb-4">
+                <label for="posisiPekerjaan" class="block text-sm font-semibold text-gray-700 mb-2">Posisi Pekerjaan</label>
+                
+                <div class="flex items-center space-x-2">
+                    <!-- Search Input -->
+                    <input type="text" id="posisiPekerjaan" placeholder="Cari posisi..." class="w-full p-2 text-xs text-gray-600 font-semibold border bg-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    
+                    <!-- Search Button inside Rounded container on the Right -->
+                    <button class="border-2 border-[#7AD600] rounded-lg p-2 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-[#7AD600]">
+                            <path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+    </div>
+    <h2 class="text-xs text-left mt-2 mb-1 ml-2">Posisi yang kamu minati</h2>
+
+<!-- Skill Tags Container -->
+<h1 class="mt-0 ml-2 flex flex-wrap">
+    <!-- Skill Tag 1 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        PNS
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Skill Tag 2 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        BUMN
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</h1>
+
+<!-- Bidang Pekerjaan Section -->
+<h3 class="mt-0">
+    <label for="bidangPekerjaan" class="block text-sm font-semibold text-gray-700 mb-2">Bidang Pekerjaan</label>
+    
+    <div class="flex items-center space-x-2">
+        <!-- Dropdown -->
+        <select id="bidangPekerjaan" class="w-full p-2 text-xs text-gray-600 font-semibold border bg-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="developer">ADMIN</option>
+            <option value="designer">Designer</option>
+            <option value="manager">Manager</option>
+        </select>
+        
+        <!-- Button with Red Border and Trash SVG -->
+        <button class="border-2 border-red-500 rounded-full p-2 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-500">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2h4a1 1 0 0 1 0 2H14v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4H2a1 1 0 0 1 0-2h4z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+    <h2 class="text-xs text-left mt-2 mb-1 ml-2">Posisi yang kamu minati</h2>
+
+<!-- Skill Tags Container -->
+<h1 class="mt-0 ml-2 flex flex-wrap">
+    <!-- Skill Tag 1 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        ADMIN SALES
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Skill Tag 2 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        ADMIN
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</h1>
+
+<!-- Bidang Pekerjaan Section -->
+<h3 class="mt-0">
+    <label for="bidangPekerjaan" class="block text-sm font-semibold text-gray-700 mb-2">Bidang Pekerjaan</label>
+    
+    <div class="flex items-center space-x-2">
+        <!-- Dropdown -->
+        <select id="bidangPekerjaan" class="w-full p-2 text-xs text-gray-600 font-semibold border bg-white border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <option value="developer">IT</option>
+            <option value="designer">Designer</option>
+            <option value="manager">Manager</option>
+        </select>
+        
+        <!-- Button with Red Border and Trash SVG -->
+        <button class="border-2 border-red-500 rounded-full p-2 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4 text-red-500">
+                <path fill-rule="evenodd" d="M6 2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2h4a1 1 0 0 1 0 2H14v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4H2a1 1 0 0 1 0-2h4z" clip-rule="evenodd" />
+            </svg>
+        </button>
+    </div>
+    <h2 class="text-xs text-left mt-2 mb-1 ml-2">Posisi yang kamu minati</h2>
+
+<!-- Skill Tags Container -->
+<h1 class="mt-0 ml-2 flex flex-wrap">
+    <!-- Skill Tag 1 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        FE
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Skill Tag 2 -->
+    <div class="mt-0 ml-0 w-auto rounded-full bg-gray-100 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+        BE
+        <button class="ml-1 h-4 w-4 cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+</h1>
+            
+        <!-- Action Buttons -->
+        <H2 class="flex justify-end mt-4 space-x-4">
+            <button onclick="closePopup('skill3')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('skill3')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+ <!-- Action minat -->
+ <div id="popup-modal-skill2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('skill2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Preferensi Pekerjaan</h2>
+        <h2 class="text-xs text-center mb-4">Menambahkan minat dan preferensi pekerjaanmu akan membantu kami</h2>
+        <h2 class="text-xs text-center mb-4 -mt-4">merekomendasikan pekerjaan yang sesuai untukmu.</h2>
+
+         <!-- Tipe Pekerjaan Section -->
+            <h3 class="text-sm font-semibold mb-2">Tipe Pekerjaan</h3>
+            <div class="grid grid-cols-1 gap-2">
+                <!-- Checkbox Options -->
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-[#7AD600] mr-2" />
+                    <span class="text-sm">Penuh Waktu</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-[#7AD600] mr-2" />
+                    <span class="text-sm">Paruh Waktu</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-[#7AD600] mr-2" />
+                    <span class="text-sm">Harian</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-[#7AD600] mr-2" />
+                    <span class="text-sm">Freelance</span>
+                </label>
+                <label class="flex items-center">
+                    <input type="checkbox" class="form-checkbox text-[#7AD600] mr-2" />
+                    <span class="text-sm">Magang</span>
+                </label>
+            </div>
+             <!-- Dimulai Label and Dropdowns -->
+       <label class="block mb-2 mt-3 text-xs font-semibold">Ekspetasi gaji bulanan</label>
+       <div class="flex items-center mb-2 text-xs">
+           <!-- Month Dropdown -->
+           <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+               <option value="">Minimal</option>
+               <option value="01">Januari</option>
+               <option value="02">Februari</option>
+               <option value="03">Maret</option>
+               <option value="04">April</option>
+               <option value="05">Mei</option>
+               <option value="06">Juni</option>
+               <option value="07">Juli</option>
+               <option value="08">Agustus</option>
+               <option value="09">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+           </select>
+           <!-- Year Dropdown -->
+           <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+               <option value="">Maksimal</option>
+               <!-- Example years -->
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+               <option value="2023">2023</option>
+               <option value="2024">2024</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+           </select>
+       </div>
+       <label class="block mb-2 mt-3 text-xs font-semibold">Preferensi kota kerja</label>
+       <div class="flex gap-2">
+        <!-- Minimal (Bulan) Dropdown -->
+        <div class="flex-1">
+            <select class="w-full border bg-white border-gray-300 rounded-lg p-2 text-xs text-gray-500">
+                <option value="" disabled selected>Nama kota </option>
+                <option value="Januari">Tuban</option>
+                <option value="Februari">semanding</option>                 
+            </select>
+        </div>
+    </div>
+    <div class="mt-2 ml-2 flex flex-wrap">
+        <!-- Skill Tag 1 -->
+        <div class="mt-0 ml-0 w-auto rounded-full bg-gray-200 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+            Tuban, jawa timur
+            <button class="ml-1 h-4 w-4 cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+</div>
+<div class="mt-2 ml-2 flex items-center">
+    <input type="checkbox" id="remote" class="form-checkbox text-[#7AD600] mr-2" />
+    <label for="remote" class="text-sm">Bersedia Bekerja Remote</label>
+</div>
+ 
+        <!-- Action Buttons -->
+        <div class="flex justify-end mt-4 space-x-4">
+            <button onclick="closePopup('skill2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('skill2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+ 
+<!-- Action pengalamanorganisasi -->
+<div id="popup-modal-pengalaman-organisasi" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+         <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('pengalaman-organisasi')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Pengalaman Organisasi</h2>
+        
+        <!-- Label for Award Title -->
+        <label for="Nama" class="block text-xs text-gray-500 font-semibold mb-1">Nama Organisasi atau kegiatan</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Nama Organisasi...">
+
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Posisi</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="Organisasi Pnerbit" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Posisi...">
+        
+       <!-- Dimulai Label and Dropdowns -->
+       <label class="block mb-0 mt-3 text-xs font-semibold">Dimulai</label>
+       <div class="flex items-center mb-2 text-xs">
+           <!-- Month Dropdown -->
+           <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+               <option value="">Bulan</option>
+               <option value="01">Januari</option>
+               <option value="02">Februari</option>
+               <option value="03">Maret</option>
+               <option value="04">April</option>
+               <option value="05">Mei</option>
+               <option value="06">Juni</option>
+               <option value="07">Juli</option>
+               <option value="08">Agustus</option>
+               <option value="09">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+           </select>
+           <!-- Year Dropdown -->
+           <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+               <option value="">Tahun</option>
+               <!-- Example years -->
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+               <option value="2023">2023</option>
+               <option value="2024">2024</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+           </select>
+       </div>
+
+       <!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-2 -mt-0">
+   <input type="checkbox" id="masih-bekerja" class="mr-2">
+   <label for="masih-bekerja" class="text-xs text-gray-500">Saya masih menjadi sukarelawan disini</label>
+</div>
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Berakhir</label>
+<div class="flex items-center mb-2 text-xs">
+    <!-- Month Dropdown -->
+    <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+    </select>
+    <!-- Year Dropdown -->
+    <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+        <option value="">Tahun</option>
+        <!-- Example years -->
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+<label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+<div class="relative mb-4">
+    <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="informasiCharCount">0</span>/200
+    </div>
+</div>
+
+             <!-- Action Buttons -->
+       <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('pengalaman-organisasi')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+        <button id="save-button" onclick="saveInput('pengalaman-organisasi')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+    </div>
+  </div>
+</div>
+<script>
+    function updateCharCount() {
+        const textarea = document.getElementById('informasi');
+        const charCount = document.getElementById('informasiCharCount');
+        charCount.textContent = textarea.value.length;
+    }
+    </script>
+
+
+ <!-- Action sertifikat -->
+ <div id="popup-modal-sertifikat" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('sertifikat')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Sertifikat</h2>
+        
+        <!-- Label for Award Title -->
+        <label for="Nama" class="block text-xs text-gray-500 font-semibold mb-1">Nama Sertifikat</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Nama Sertifikat...">
+
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Organisasi Pnerbit</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="Organisasi Pnerbit" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Organisasi Pnerbit...">
+        
+       <!-- Dimulai Label and Dropdowns -->
+       <label class="block mb-0 mt-3 text-xs font-semibold">Dimulai</label>
+       <div class="flex items-center mb-2 text-xs">
+           <!-- Month Dropdown -->
+           <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+               <option value="">Bulan</option>
+               <option value="01">Januari</option>
+               <option value="02">Februari</option>
+               <option value="03">Maret</option>
+               <option value="04">April</option>
+               <option value="05">Mei</option>
+               <option value="06">Juni</option>
+               <option value="07">Juli</option>
+               <option value="08">Agustus</option>
+               <option value="09">September</option>
+               <option value="10">Oktober</option>
+               <option value="11">November</option>
+               <option value="12">Desember</option>
+           </select>
+           <!-- Year Dropdown -->
+           <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+               <option value="">Tahun</option>
+               <!-- Example years -->
+               <option value="2020">2020</option>
+               <option value="2021">2021</option>
+               <option value="2022">2022</option>
+               <option value="2023">2023</option>
+               <option value="2024">2024</option>
+               <option value="2025">2025</option>
+               <option value="2026">2026</option>
+           </select>
+       </div>
+
+       <!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-2 -mt-0">
+   <input type="checkbox" id="masih-bekerja" class="mr-2">
+   <label for="masih-bekerja" class="text-xs text-gray-500">Sertifikat ini tidak memiliki batas waktu masa aktif</label>
+</div>
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Berakhir</label>
+<div class="flex items-center mb-2 text-xs">
+    <!-- Month Dropdown -->
+    <select class="bg-white border rounded-lg p-2 mr-2 w-[290px] text-gray-500" id="dropdown-bulan">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+    </select>
+    <!-- Year Dropdown -->
+    <select class="bg-white border rounded-lg p-2 w-[290px] text-gray-500" id="dropdown-tahun">
+        <option value="">Tahun</option>
+        <!-- Example years -->
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+<label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+<div class="relative mb-4">
+    <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+    <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+        <span id="informasiCharCount">0</span>/200
+    </div>
+</div>
+
+      
+      <!-- Action Buttons -->
+      <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('sertifikat')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+        <button id="save-button" onclick="saveInput('sertifikat')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+    </div>
+  </div>
+</div>
+<script>
+    function updateCharCount() {
+        const textarea = document.getElementById('informasi');
+        const charCount = document.getElementById('informasiCharCount');
+        charCount.textContent = textarea.value.length;
+    }
+    </script>
+
+ <!-- Action penghargaan -->
+
+ <div id="popup-modal-penghargaan" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('penghargaan')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Penghargaan</h2>
+        
+        <!-- Label for Award Title -->
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1">Judul Penghargaan</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan judul penghargaan...">
+
+        <label for="judul-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Judul Prestasi atau Kontribusi</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-prestasi" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan judul Prestasi...">
+
+        <label for="tahun-penghargaan" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Tahun</label>
+        
+        <!-- Rounded Input for Award Title -->
+        <input type="text" id="judul-penghargaan" class="text-xs border border-gray-300 rounded-lg p-2 w-full" placeholder="Masukkan Tahun...">
+
+        <label for="informasti" class="block text-xs text-gray-500 font-semibold mb-1 mt-3">Informasi Tambahan (Opsional)</label>
+         <!-- Textarea for Additional Information with Character Count -->
+         <div class="relative mb-4">
+            <textarea id="informasi" class="border border-gray-300 rounded-lg w-full p-2 text-xs text-gray-500" rows="4" placeholder="Tulis deskripsi tambahan di sini..." oninput="updateCharCount()"></textarea>
+            <div class="absolute right-2 bottom-2 text-xs text-gray-500">
+                <span id="informasiCharCount">0</span>/200
+            </div>
+        </div>
+
+        <div class="flex justify-end mt-4 space-x-4">
+                        <button onclick="closePopup('penghargaan')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('penghargaan')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function updateCharCount() {
+    const textarea = document.getElementById('informasi');
+    const charCount = document.getElementById('informasiCharCount');
+    charCount.textContent = textarea.value.length;
+}
+</script>
+
+        <!-- Action PENGALAMANNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+
+ <div id="popup-modal-pengalaman" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                
+                <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('pengalaman')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+  </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Pengalaman Kerja</h2>
+        
+        <!-- Input Field for Position with Search Button -->
+        <div class="flex items-center border rounded-lg  mb-4">
+            <input type="text" id="input-posisi" class="w-full p-2 rounded-l-lg" placeholder="Masukkan posisi pekerjaan...">
+            <button class="p-2 bg-gray-200 rounded-r-lg hover:bg-gray-300 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Input Field for Company with Cancel Button -->
+        <div class="flex items-center border rounded-lg mb-4">
+            <input type="text" id="input-perusahaan" class="w-full p-2 rounded-l-lg" placeholder="Masukkan perusahaan...">
+            <button onclick="clearCompanyInput()" class="p-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-red-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Dimulai Label and Dropdowns -->
+        <label class="block mb-1 text-xs font-semibold">Dimulai</label>
+        <div class="flex items-center mb-4 text-xs">
+            <!-- Month Dropdown -->
+            <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+                <option value="">Bulan</option>
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+            </select>
+            <!-- Year Dropdown -->
+            <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+                <option value="">Tahun</option>
+                <!-- Example years -->
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+                <option value="2026">2026</option>
+            </select>
+        </div>
+
+        <!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-4">
+    <input type="checkbox" id="masih-bekerja" class="mr-2">
+    <label for="masih-bekerja" class="text-sm">Saya masih bekerja di sini</label>
+</div>
+ <!-- Dimulai Label and Dropdowns -->
+ <label class="block mb-1 text-xs font-semibold">Berakhir</label>
+ <div class="flex items-center mb-4 text-xs">
+     <!-- Month Dropdown -->
+     <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+         <option value="">Bulan</option>
+         <option value="01">Januari</option>
+         <option value="02">Februari</option>
+         <option value="03">Maret</option>
+         <option value="04">April</option>
+         <option value="05">Mei</option>
+         <option value="06">Juni</option>
+         <option value="07">Juli</option>
+         <option value="08">Agustus</option>
+         <option value="09">September</option>
+         <option value="10">Oktober</option>
+         <option value="11">November</option>
+         <option value="12">Desember</option>
+     </select>
+     <!-- Year Dropdown -->
+     <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+         <option value="">Tahun</option>
+         <!-- Example years -->
+         <option value="2020">2020</option>
+         <option value="2021">2021</option>
+         <option value="2022">2022</option>
+         <option value="2023">2023</option>
+         <option value="2024">2024</option>
+         <option value="2025">2025</option>
+         <option value="2026">2026</option>
+     </select>
+ </div>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('pengalaman-kerja')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button-pengalaman" onclick="saveInput('pengalaman-kerja')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+ <!-- Action PENGALAMANNNNNNNNNNNNNNNNNNNNNNNNNNNNNN 222222222222222-->
+
+ <div id="popup-modal-pengalaman2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+<button onclick="closePopup('pengalaman2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+</svg>
+</button>
+<!-- Popup Title -->
+<h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Pengalaman Kerja</h2>
+
+<!-- Input Field for Position with Search Button -->
+<div class="flex items-center border rounded-lg  mb-4">
+    <input type="text" id="input-posisi" class="w-full p-2 rounded-l-lg" placeholder="Masukkan posisi pekerjaan...">
+    <button class="p-2 bg-gray-200 rounded-r-lg hover:bg-gray-300 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+        </svg>
+    </button>
+</div>
+
+<!-- Input Field for Company with Cancel Button -->
+<div class="flex items-center border rounded-lg mb-4">
+    <input type="text" id="input-perusahaan" class="w-full p-2 rounded-l-lg" placeholder="Masukkan perusahaan...">
+    <button onclick="clearCompanyInput()" class="p-2 transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+</div>
+
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Dimulai</label>
+<div class="flex items-center mb-4 text-xs">
+    <!-- Month Dropdown -->
+    <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+        <option value="">Bulan</option>
+        <option value="01">Januari</option>
+        <option value="02">Februari</option>
+        <option value="03">Maret</option>
+        <option value="04">April</option>
+        <option value="05">Mei</option>
+        <option value="06">Juni</option>
+        <option value="07">Juli</option>
+        <option value="08">Agustus</option>
+        <option value="09">September</option>
+        <option value="10">Oktober</option>
+        <option value="11">November</option>
+        <option value="12">Desember</option>
+    </select>
+    <!-- Year Dropdown -->
+    <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+        <option value="">Tahun</option>
+        <!-- Example years -->
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+        <option value="2026">2026</option>
+    </select>
+</div>
+
+<!-- Checkbox for "Saya masih bekerja di sini" -->
+<div class="flex items-center mb-4">
+<input type="checkbox" id="masih-bekerja" class="mr-2">
+<label for="masih-bekerja" class="text-sm">Saya masih bekerja di sini</label>
+</div>
+<!-- Dimulai Label and Dropdowns -->
+<label class="block mb-1 text-xs font-semibold">Berakhir</label>
+<div class="flex items-center mb-4 text-xs">
+<!-- Month Dropdown -->
+<select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+ <option value="">Bulan</option>
+ <option value="01">Januari</option>
+ <option value="02">Februari</option>
+ <option value="03">Maret</option>
+ <option value="04">April</option>
+ <option value="05">Mei</option>
+ <option value="06">Juni</option>
+ <option value="07">Juli</option>
+ <option value="08">Agustus</option>
+ <option value="09">September</option>
+ <option value="10">Oktober</option>
+ <option value="11">November</option>
+ <option value="12">Desember</option>
+</select>
+<!-- Year Dropdown -->
+<select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+ <option value="">Tahun</option>
+ <!-- Example years -->
+ <option value="2020">2020</option>
+ <option value="2021">2021</option>
+ <option value="2022">2022</option>
+ <option value="2023">2023</option>
+ <option value="2024">2024</option>
+ <option value="2025">2025</option>
+ <option value="2026">2026</option>
+</select>
+</div>
+
+<!-- Action Buttons -->
+<div class="flex justify-end mt-4 space-x-4">
+<button onclick="closePopup('pengalaman2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+    <button id="save-button-pengalaman" onclick="saveInput('pengalaman2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+</div>
+</div>
+</div>
+
+<!-- Action PENDIDIKANNNNNNNNNNNNNNNNNNNNNN -->
+
+ <div id="popup-modal-pendidikan" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+ <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                
+                <!-- Close Button (X Icon) -->
+                <button onclick="closePopup('pendidikan')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Pendidikan</h2>
+        
+        <div class="mb-4">
+            <label for="tingkat-pendidikan" class="block text-xs mb-1">Tingkat Pendidikan:</label>
+            <select id="tingkat-pendidikan" class="text-xs bg-white border rounded p-2 w-full">
+                <option value="SD">Sekolah Dasar</option>
+                <option value="SMP">Sekolah Menengah Pertama</option>
+                <option value="SMA">Sekolah Menengah Atas</option>
+                <option value="Diploma">Diploma</option>
+                <option value="S1">Sarjana</option>
+                <option value="S2">Magister</option>
+                <option value="S3">Doktor</option>
+            </select>
+        </div>
+
+        <div class="mb-4 -mt-2">
+            <label for="input-institusi" class="block text-xs mb-1">Institusi Pendidikan:</label>
+            <div class="flex items-center">
+                <input type="text" id="input-institusi" class="w-full p-2 border rounded-lg w-[600px] h-9" placeholder="Masukkan institusi pendidikan...">
+                <button class="p-2 bg-[#7AD600] text-white rounded-lg hover:bg-green-600 transition-colors ml-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="mb-4 -mt-2">
+            <label for="input-institusi" class="block text-xs mb-1">Bidang Studi :</label>
+            <div class="flex items-center">
+                <input type="text" id="input-institusi" class="w-full p-2 border rounded-lg w-[600px] h-9" placeholder="Masukkan Bidang Studi...">
+                <button class="p-2 bg-[#7AD600] text-white rounded-lg hover:bg-[#7AD600] transition-colors ml-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+       
+         <!-- Dimulai Label and Dropdowns -->
+         <label class="block mb-1 text-xs font-semibold">Dimulai</label>
+         <div class="flex items-center mb-4 text-xs">
+             <!-- Month Dropdown -->
+             <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+                 <option value="">Bulan</option>
+                 <option value="01">Januari</option>
+                 <option value="02">Februari</option>
+                 <option value="03">Maret</option>
+                 <option value="04">April</option>
+                 <option value="05">Mei</option>
+                 <option value="06">Juni</option>
+                 <option value="07">Juli</option>
+                 <option value="08">Agustus</option>
+                 <option value="09">September</option>
+                 <option value="10">Oktober</option>
+                 <option value="11">November</option>
+                 <option value="12">Desember</option>
+             </select>
+             <!-- Year Dropdown -->
+             <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+                 <option value="">Tahun</option>
+                 <!-- Example years -->
+                 <option value="2020">2020</option>
+                 <option value="2021">2021</option>
+                 <option value="2022">2022</option>
+                 <option value="2023">2023</option>
+                 <option value="2024">2024</option>
+                 <option value="2025">2025</option>
+                 <option value="2026">2026</option>
+             </select>
+         </div>
+ 
+         <!-- Checkbox for "Saya masih bekerja di sini" -->
+ <div class="flex items-center mb-4">
+     <input type="checkbox" id="masih-bekerja" class="mr-2">
+     <label for="masih-bekerja" class="text-xs">Saya masih bekerja di sini</label>
+ </div>
+  <!-- Dimulai Label and Dropdowns -->
+  <label class="block mb-1 text-xs font-semibold">Berakhir</label>
+  <div class="flex items-center mb-4 text-xs">
+      <!-- Month Dropdown -->
+      <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+          <option value="">Bulan</option>
+          <option value="01">Januari</option>
+          <option value="02">Februari</option>
+          <option value="03">Maret</option>
+          <option value="04">April</option>
+          <option value="05">Mei</option>
+          <option value="06">Juni</option>
+          <option value="07">Juli</option>
+          <option value="08">Agustus</option>
+          <option value="09">September</option>
+          <option value="10">Oktober</option>
+          <option value="11">November</option>
+          <option value="12">Desember</option>
+      </select>
+      <!-- Year Dropdown -->
+      <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+          <option value="">Tahun</option>
+          <!-- Example years -->
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
+          <option value="2024">2024</option>
+          <option value="2025">2025</option>
+          <option value="2026">2026</option>
+      </select>
+  </div>
+ 
+        
+        <!-- Action Buttons -->
+        <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('pendidikan')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('pendidikan')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Action PENDIDIKANNNNNNNNNNNNNNNNNNNNNN 222222222222222222222 -->
+
+<div id="popup-modal-pendidikan2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                   
+                   <!-- Close Button (X Icon) -->
+                   <button onclick="closePopup('pendidikan2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                       </svg>
+                   </button>
+           <!-- Popup Title -->
+           <h2 class="text-lg font-bold text-center mt-2 mb-3">Sunting Pendidikan</h2>
+           
+           <div class="mb-4">
+               <label for="tingkat-pendidikan" class="block text-xs mb-1">Tingkat Pendidikan:</label>
+               <select id="tingkat-pendidikan" class="text-xs bg-white border rounded p-2 w-full">
+                   <option value="SD">Sekolah Dasar</option>
+                   <option value="SMP">Sekolah Menengah Pertama</option>
+                   <option value="SMA">Sekolah Menengah Atas</option>
+                   <option value="Diploma">Diploma</option>
+                   <option value="S1">Sarjana</option>
+                   <option value="S2">Magister</option>
+                   <option value="S3">Doktor</option>
+               </select>
+           </div>
+   
+           <div class="mb-4 -mt-2">
+               <label for="input-institusi" class="block text-xs mb-1">Institusi Pendidikan:</label>
+               <div class="flex items-center">
+                   <input type="text" id="input-institusi" class="w-full p-2 border rounded-lg w-[600px] h-9" placeholder="Masukkan institusi pendidikan...">
+                   <button class="p-2 bg-[#7AD600] text-white rounded-lg hover:bg-green-600 transition-colors ml-3">
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+                       </svg>
+                   </button>
+               </div>
+           </div>
+   
+           <div class="mb-4 -mt-2">
+               <label for="input-institusi" class="block text-xs mb-1">Bidang Studi :</label>
+               <div class="flex items-center">
+                   <input type="text" id="input-institusi" class="w-full p-2 border rounded-lg w-[600px] h-9" placeholder="Masukkan Bidang Studi...">
+                   <button class="p-2 bg-[#7AD600] text-white rounded-lg hover:bg-[#7AD600] transition-colors ml-3">
+                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-5 h-5">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6 0 7.5 7.5 0 0 0 10.6 0z" />
+                       </svg>
+                   </button>
+               </div>
+           </div>
+          
+            <!-- Dimulai Label and Dropdowns -->
+            <label class="block mb-1 text-xs font-semibold">Dimulai</label>
+            <div class="flex items-center mb-4 text-xs">
+                <!-- Month Dropdown -->
+                <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+                    <option value="">Bulan</option>
+                    <option value="01">Januari</option>
+                    <option value="02">Februari</option>
+                    <option value="03">Maret</option>
+                    <option value="04">April</option>
+                    <option value="05">Mei</option>
+                    <option value="06">Juni</option>
+                    <option value="07">Juli</option>
+                    <option value="08">Agustus</option>
+                    <option value="09">September</option>
+                    <option value="10">Oktober</option>
+                    <option value="11">November</option>
+                    <option value="12">Desember</option>
+                </select>
+                <!-- Year Dropdown -->
+                <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+                    <option value="">Tahun</option>
+                    <!-- Example years -->
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+            </div>
+    
+            <!-- Checkbox for "Saya masih bekerja di sini" -->
+    <div class="flex items-center mb-4">
+        <input type="checkbox" id="masih-bekerja" class="mr-2">
+        <label for="masih-bekerja" class="text-xs">Saya masih bekerja di sini</label>
+    </div>
+     <!-- Dimulai Label and Dropdowns -->
+     <label class="block mb-1 text-xs font-semibold">Berakhir</label>
+     <div class="flex items-center mb-4 text-xs">
+         <!-- Month Dropdown -->
+         <select class="bg-white border rounded-lg p-2 mr-2 w-[290px]" id="dropdown-bulan">
+             <option value="">Bulan</option>
+             <option value="01">Januari</option>
+             <option value="02">Februari</option>
+             <option value="03">Maret</option>
+             <option value="04">April</option>
+             <option value="05">Mei</option>
+             <option value="06">Juni</option>
+             <option value="07">Juli</option>
+             <option value="08">Agustus</option>
+             <option value="09">September</option>
+             <option value="10">Oktober</option>
+             <option value="11">November</option>
+             <option value="12">Desember</option>
+         </select>
+         <!-- Year Dropdown -->
+         <select class="bg-white border rounded-lg p-2 w-[290px]" id="dropdown-tahun">
+             <option value="">Tahun</option>
+             <!-- Example years -->
+             <option value="2020">2020</option>
+             <option value="2021">2021</option>
+             <option value="2022">2022</option>
+             <option value="2023">2023</option>
+             <option value="2024">2024</option>
+             <option value="2025">2025</option>
+             <option value="2026">2026</option>
+         </select>
+     </div>
+    
+           
+           <!-- Action Buttons -->
+           <div class="flex justify-end mt-4 space-x-4">
+           <button onclick="closePopup('pendidikan2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+               <button id="save-button" onclick="saveInput('pendidikan2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+           </div>
+       </div>
+   </div>
+
+        <!-- Action SKILLLLLL -->
+
+<div id="popup-modal-skill" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+                
+                <!-- Close Button (X Icon) -->
+                <button onclick="closePopup('skill')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Skills</h2>
+        <h2 class="text-xs text-center mb-4">Pilih 3-10 keterampilan terkuatmu.</h2>
+        <h2 class="text-xs text-center mb-4 -mt-4">Ini akan membantu perekrut untuk lebih memahami sejauh mana kamu cocok untuk posisi tersebut.</h2> 
+        
+        <!-- Dropdown for Cari Skill -->
+        <div class="mb-4">
+            <label for="cari-skill" class="block text-xs mb-1">Cari Skill:</label>
+            <select id="cari-skill" class="bg-white text-xs border rounded p-2 w-full text-gray-500">
+                <option value="" disabled selected hidden>Pilih Skill</option>
+                <option value="skill1">Pilih Skill</option>
+                <option value="skill2">Skill 2</option>
+                <option value="skill3">Skill 3</option>
+                <option value="skill4">Skill 4</option>
+                <option value="skill5">Skill 5</option>
+            </select>
+        </div>
+
+        <h2 class="text-xs text-left -mt-2 mb-1 ml-2">3 Skill dipilih.</h2>
+
+        <!-- Skill Tags Container -->
+        <div class="mt-0 ml-2 flex flex-wrap">
+            <!-- Skill Tag 1 -->
+            <div class="mt-0 ml-0 w-auto rounded-full bg-gray-200 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+                React
+                <button class="ml-1 h-4 w-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Skill Tag 2 -->
+            <div class="mt-0 ml-0 w-auto rounded-full bg-gray-200 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+                JavaScript
+                <button class="ml-1 h-4 w-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Skill Tag 3 -->
+            <div class="mt-0 ml-0 w-auto rounded-full bg-gray-200 border border-[#77C92A] bg-white text-black text-xs text-center py-1 px-2 flex items-center mr-2 mb-2">
+                CSS
+                <button class="ml-1 h-4 w-4 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex justify-between mt-4">
+            <button onclick="closePopup('skill')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('skill')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+
+<!-- Action RESUMEEEEEEEEEEEEEEEEE -->
+<div id="popup-modal-resume" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('resume')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-2xl font-bold text-center mt-3 mb-3">Resume</h2>
+        <h2 class="text-xs text-center mb-4">Sebanyak 77,4% perusahaan menilai resume</h2>
+        <h2 class="text-xs text-center mb-4 -mt-4">sebagai hal yang sangat krusial dalam proses lamaran kerja.</h2> 
+        
+       <!-- File Upload Area -->
+       <div class="flex items-center justify-center border-2 border-dashed border-gray-300 rounded-lg p-6 bg-gray-50 hover:bg-gray-100 cursor-pointer">
+        <label for="upload-cv" class="text-gray-500 text-sm flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mb-2 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm1 5a1 1 0 112 0v4a1 1 0 01-2 0V8zm4-2a1 1 0 011 1v6a1 1 0 01-2 0V7a1 1 0 011-1zm4 3a1 1 0 112 0v3a1 1 0 01-2 0V9z" clip-rule="evenodd" />
+            </svg>
+            <span>Upload CV-mu</span>
+            <input id="upload-cv" type="file" accept=".pdf, .doc, .docx" class="hidden" />
+        </label>
+    </div>
+        
+        <!-- Action Buttons -->
+        <div class="flex justify-end mt-4 space-x-4">
+         <button onclick="closePopup('resume')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('resume')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Action RESUMEEEEEEEEEEEEEEEEE 2222222222222222222-->
+<div id="popup-modal-resume2" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('resume2')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-2xl font-bold text-center mt-3 mb-3">Resume</h2>
+        <h2 class="text-xs text-center mb-4">Sebanyak 77,4% perusahaan menilai resume</h2>
+        <h2 class="text-xs text-center mb-4 -mt-4">sebagai hal yang sangat krusial dalam proses lamaran kerja.</h2> 
+     <!-- Rounded Box with File Label and Buttons -->
+<div class="flex items-center justify-between bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 mt-3">
+    <!-- File Label -->
+    <span class="text-gray-700 text-sm">test123.pdf</span>
+    
+    <!-- Buttons for Edit and Delete -->
+    <div class="flex space-x-2">
+        <!-- Edit Button (SVG Icon) -->
+        <button class="text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536M4 17.414V21h3.586l10.536-10.536-3.536-3.536L4 17.414z" />
+            </svg>
+        </button>
+        
+        <!-- Delete Button (SVG Icon) -->
+        <button class="text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+</div>
+</div>
+
+        <!-- Action Buttons -->
+        <h3 class="flex justify-end mt-4 space-x-4">
+         <button onclick="closePopup('resume2')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('resume2')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+ <!-- Action PORTOFOLIOOOOOOOOOOOOOOOOOOOOOOOOOOOOO -->
+ <div id="popup-modal-portofolio" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="relative bg-white rounded-lg p-3 w-[600px] shadow-lg">
+        
+        <!-- Close Button (X Icon) -->
+        <button onclick="closePopup('portofolio')" class="absolute top-3 right-3 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <!-- Popup Title -->
+        <h2 class="text-lg font-bold text-center mt-2 mb-3">Tambah Portofolio & Media Sosial</h2>
+        
+        <!-- Portfolio Site Input -->
+        <div class="mb-4">
+            <label for="portfolio-site" class="block text-xs font-bold mb-1">Situs Portofolio</label>
+            <div class="relative">
+                <!-- Input Field -->
+                <input type="text" id="portfolio-site" placeholder="Contoh: https://yoursite.com/..."
+                class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+         
+         <!-- Clear Button with SVG Icon -->
+         <button onclick="document.getElementById('portfolio-site').value='';" 
+                 class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+             </svg>
+         </button>
+            </div>
+
+             <!-- Upload Instructions -->
+        <p class="text-xs text-gray-500 mb-2 mt-3">
+            Upload proyek atau sampel pekerjaan (gambar dan PDF diterima), file harus lebih kecil dari 3 MB.
+        </p>
+
+        <div class="flex justify-left">
+            <label for="file-upload" class="cursor-pointer bg-[#7AD600] text-white font-semibold p-2 text-xs rounded hover:bg-green-600 transition-colors text-left w-28 h-8 flex items-center">
+                <input type="file" id="file-upload" class="hidden" accept=".png, .jpg, .jpeg, .pdf">
+                
+                <!-- SVG Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 8.25H7.5a2.25 2.25 0 0 0-2.25 2.25v9a2.25 2.25 0 0 0 2.25 2.25h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25H15m0-3-3-3m0 0-3 3m3-3V15" />
+                </svg>
+        
+                <!-- Text -->
+                Upload File
+            </label>
+        </div>
+        <div class="mb-4 mt-4">
+            <label for="github-site" class="block text-xs font-bold mb-1">Link Media Sosial</label>
+            <div class="flex items-center mb-1">
+                <img src="img/github-mark.png" alt="GitHub logo" class="w-4 h-4 mr-2">
+                <label for="github-site" class="text-xs">GitHub</label>
+            </div>
+            <div class="relative">
+                <input type="text" id="github-site" placeholder="Contoh: https://github.com/..."
+                       class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+                
+                <!-- Clear Button with SVG Icon -->
+                <button onclick="document.getElementById('github-site').value='';" 
+                        class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </button>
+</div>
+<div class="mb-4 mt-3">
+    <div class="flex items-center mb-1">
+        <img src="img/linkedin.svg" alt="GitHub logo" class="w-4 h-4 mr-2">
+        <label for="github-site" class="text-xs">Linkedin</label>
+    </div>
+    <div class="relative">
+        <input type="text" id="linkedin-site" placeholder="Contoh: https://instargan.com/..."
+               class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+        
+        <!-- Clear Button with SVG Icon -->
+        <button onclick="document.getElementById('linkedin-site').value='';" 
+                class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+</div>
+
+<div class="mb-4 mt-3">
+    <div class="flex items-center mb-1">
+        <img src="img/instagram.svg" alt="GitHub logo" class="w-4 h-4 mr-2">
+        <label for="github-site" class="text-xs">Instagram</label>
+    </div>
+    <div class="relative">
+        <input type="text" id="instagram-site" placeholder="Contoh: https://instargan.com/..."
+               class="w-full p-2.5 border rounded text-xs placeholder-gray-500 text-gray-700">
+        
+        <!-- Clear Button with SVG Icon -->
+        <button onclick="document.getElementById('instagram-site').value='';" 
+                class="absolute inset-y-0 right-2 flex items-center text-gray-500 hover:text-red-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </button>
+</div>
+        <!-- Action Buttons -->
+        <div class="flex justify-end mt-4 space-x-4">
+        <button onclick="closePopup('portofolio')" class="px-4 py-1 border border-red-500 text-red-500 rounded-lg hover:bg-gray-400 hover:text-red-500 transition-colors">Batal</button>
+            <button id="save-button" onclick="saveInput('portofolio')" class="px-4 py-1 bg-[#7AD600] text-white rounded-lg hover:bg-gray-400 hover:text-[#7AD600] transition-colors">Simpan</button>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+    // Function to Show Popup
+    function showPopup(section) {
+        if (section === 'tentang-saya') {
+            document.getElementById('popup-modal-tentang').classList.remove('hidden');
+        } else if (section === 'pengalaman-kerja') {
+            document.getElementById('popup-modal-pengalaman').classList.remove('hidden');
+        } else if (section === 'pendidikan') {
+            document.getElementById('popup-modal-pendidikan').classList.remove('hidden');
+        } else if (section === 'skill') {
+            document.getElementById('popup-modal-skill').classList.remove('hidden');
+        } else if (section === 'resume') {
+            document.getElementById('popup-modal-resume').classList.remove('hidden');
+        } else if (section === 'portofolio') {
+            document.getElementById('popup-modal-portofolio').classList.remove('hidden');
+        } else if (section === 'penghargaan') {
+            document.getElementById('popup-modal-penghargaan').classList.remove('hidden');
+        } else if (section === 'sertifikat') {
+            document.getElementById('popup-modal-sertifikat').classList.remove('hidden');
+        } else if (section === 'pengalaman-organisasi') {
+            document.getElementById('popup-modal-pengalaman-organisasi').classList.remove('hidden');
+        }  else if (section === 'skill2') {
+            document.getElementById('popup-modal-skill2').classList.remove('hidden');
+        }   else if (section === 'skill3') {
+            document.getElementById('popup-modal-skill3').classList.remove('hidden');
+        }   else if (section === 'pengalaman2') {
+            document.getElementById('popup-modal-pengalaman2').classList.remove('hidden');
+        }   else if (section === 'pendidikan2') {
+            document.getElementById('popup-modal-pendidikan2').classList.remove('hidden');
+        }   else if (section === 'pendidikan2') {
+            document.getElementById('popup-modal-pendidikan2').classList.remove('hidden');
+        }   else if (section === 'resume2') {
+            document.getElementById('popup-modal-resume2').classList.remove('hidden');
+        }   else if (section === 'resume2') {
+            document.getElementById('popup-modal-resume2').classList.remove('hidden');
+        }  else if (section === 'portofolio2') {
+            document.getElementById('popup-modal-portofolio2').classList.remove('hidden');
+        }  else if (section === 'penghargaan2') {
+            document.getElementById('popup-modal-penghargaan2').classList.remove('hidden');
+        }   else if (section === 'sertifikat2') {
+            document.getElementById('popup-modal-sertifikat2').classList.remove('hidden');
+        }   else if (section === 'pengalaman-organisasi2') {
+            document.getElementById('popup-modal-pengalaman-organisasi2').classList.remove('hidden');
+        }  
+    }
+
+     // Function to Clear Company Input
+     function clearCompanyInput() {
+        document.getElementById('input-perusahaan').value = ''; // Clear the input field
+    }
+
+    // Function to Close Popup
+    function closePopup(section) {
+        if (section === 'tentang-saya') {
+            document.getElementById('popup-modal-tentang').classList.add('hidden');
+        } else if (section === 'pengalaman-kerja') {
+            document.getElementById('popup-modal-pengalaman').classList.add('hidden');
+        } else if (section === 'pendidikan') {
+            document.getElementById('popup-modal-pendidikan').classList.add('hidden');
+        } else if (section === 'skill') {
+            document.getElementById('popup-modal-skill').classList.add('hidden');
+         } else if (section === 'resume') {
+            document.getElementById('popup-modal-resume').classList.add('hidden');
+        } else if (section === 'portofolio') {
+            document.getElementById('popup-modal-portofolio').classList.add('hidden');
+            } else if (section === 'penghargaan') {
+            document.getElementById('popup-modal-penghargaan').classList.add('hidden');
+        } else if (section === 'sertifikat') {
+            document.getElementById('popup-modal-sertifikat').classList.add('hidden');
+    } else if (section === 'pengalaman-organisasi') {
+            document.getElementById('popup-modal-pengalaman-organisasi').classList.add('hidden');
+       
+    } else if (section === 'skill2') {
+            document.getElementById('popup-modal-skill2').classList.add('hidden');
+       
+    } else if (section === 'skill3') {
+            document.getElementById('popup-modal-skill3').classList.add('hidden');
+       
+    } else if (section === 'pengalaman2') {
+            document.getElementById('popup-modal-pengalaman2').classList.add('hidden');
+       
+    } else if (section === 'pendidikan2') {
+            document.getElementById('popup-modal-pendidikan2').classList.add('hidden');
+       
+    }  else if (section === 'resume2') {
+            document.getElementById('popup-modal-resume2').classList.add('hidden');
+       
+    }  else if (section === 'portofolio2') {
+            document.getElementById('popup-modal-portofolio2').classList.add('hidden');
+       
+    }  else if (section === 'penghargaan2') {
+            document.getElementById('popup-modal-penghargaan2').classList.add('hidden');
+        } else if (section === 'sertifikat2') {
+            document.getElementById('popup-modal-sertifikat2').classList.add('hidden');
+        }  else if (section === 'pengalaman-organisasi2') {
+            document.getElementById('popup-modal-pengalaman-organisasi2').classList.add('hidden');
+        }  
+
+}
+
+    // Function to Save Input and Close Popup
+    function saveInput(section) {
+        if (section === 'tentang-saya') {
+            let inputContent = document.getElementById('input-tentang-saya').value;
+            alert("Deskripsi Disimpan: " + inputContent); // Replace with actual save logic if needed
+            closePopup('tentang-saya');
+        } else if (section === 'pengalaman-kerja') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pengalaman-kerja');
+        } else if (section === 'pendidikan') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pendidikan');
+        } else if (section === 'skill') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('skill');
+        
+    } else if (section === 'resume') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('resume');
+        
+    } else if (section === 'portofolio') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('portofolio');
+        } else if (section === 'penghargaan') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('penghargaan');
+        } else if (section === 'sertifikat') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('sertifikat');
+        } else if (section === 'pengalaman-organisasi') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pengalaman-organisasi');
+        } else if (section === 'skill2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('skill2');
+        } else if (section === 'skill3') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('skill3');
+        }  else if (section === 'pengalaman2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pengalaman2');
+        }  else if (section === 'pendidikan2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pendidikan2');
+        }  else if (section === 'resume2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('resume2');
+        }   else if (section === 'portofolio2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('portofolio2');
+        }    else if (section === 'penghargaan2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('penghargaan2');
+        }   else if (section === 'sertifikat2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('sertifikat2');
+        }    else if (section === 'pengalaman-organisasi2') {
+            let inputPosisi = document.getElementById('input-posisi').value;
+            alert("Posisi Disimpan: " + inputPosisi); // Replace with actual save logic if needed
+            closePopup('pengalaman-organisasi2');
+        }  
+}
+
+
+</script>
+
+<!-- Styling for Popup Modal -->
+<style>
+    #popup-modal-tentang, #popup-modal-pengalaman #popup-modal-pengalaman {
+        z-index: 50; /* Ensures the modal is on top */
+    }
+</style>
